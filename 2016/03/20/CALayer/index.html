@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Archives: 2016 | 肖</title>
+  <title>CALayer的属性 | 肖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="oc,swift,html5,">
-<meta property="og:type" content="website">
-<meta property="og:title" content="肖">
-<meta property="og:url" content="http://xiaodev.cn/archives/2016/index.html">
+  <meta name="description" content="以下CALayer的属性指定了图层的几何。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CALayer的属性">
+<meta property="og:url" content="http://xiaodev.cn/2016/03/20/CALayer/index.html">
 <meta property="og:site_name" content="肖">
-<meta property="og:description" content="oc,swift,html5,">
+<meta property="og:description" content="以下CALayer的属性指定了图层的几何。">
+<meta property="og:updated_time" content="2016-05-28T07:06:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="肖">
-<meta name="twitter:description" content="oc,swift,html5,">
+<meta name="twitter:title" content="CALayer的属性">
+<meta name="twitter:description" content="以下CALayer的属性指定了图层的几何。">
   
     <link rel="alternative" href="/atom.xml" title="肖" type="application/atom+xml">
   
@@ -202,200 +203,198 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-CALayer" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2016/03/20/CALayer/" class="article-date">
+  	<time datetime="2016-03-20T13:41:04.000Z" itemprop="datePublished">2016-03-20</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CALayer的属性
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/30/CocoaPods/" class="archive-article-date">
-  	<time datetime="2016-04-30T13:51:07.000Z" itemprop="datePublished">Apr 30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/30/CocoaPods/">CocoaPods</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以下CALayer的属性指定了图层的几何。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><table>
+<thead>
+<tr>
+<th style="text-align:center">属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">anchorPoint</td>
+<td>和中心点position重合的一个点，称为“锚点”，锚点的描述是相对于x、y位置比例而言的默认在图像中心点(0.5,0.5)的位置</td>
+</tr>
+<tr>
+<td style="text-align:center">backgroundColor</td>
+<td>图层背景颜色</td>
+</tr>
+<tr>
+<td style="text-align:center">borderColor</td>
+<td>边框颜色</td>
+</tr>
+<tr>
+<td style="text-align:center">borderWidth</td>
+<td>边框宽度</td>
+</tr>
+<tr>
+<td style="text-align:center">bounds</td>
+<td>图层大小</td>
+</tr>
+<tr>
+<td style="text-align:center">contents</td>
+<td>图层显示内容，例如可以将图片作为图层内容显示</td>
+</tr>
+<tr>
+<td style="text-align:center">contentsRect</td>
+<td>图层显示内容的大小和位置</td>
+</tr>
+<tr>
+<td style="text-align:center">cornerRadius</td>
+<td>圆角半径</td>
+</tr>
+<tr>
+<td style="text-align:center">doubleSided</td>
+<td>图层背面是否显示，默认为YES</td>
+</tr>
+<tr>
+<td style="text-align:center">frame</td>
+<td>图层大小和位置，不支持隐式动画，所以CALayer中很少使用frame，通常使用bounds和position代替</td>
+</tr>
+<tr>
+<td style="text-align:center">hidden</td>
+<td>是否隐藏</td>
+</tr>
+<tr>
+<td style="text-align:center">mask</td>
+<td>图层蒙版</td>
+</tr>
+<tr>
+<td style="text-align:center">maskToBounds</td>
+<td>子图层是否剪切图层边界，默认为NO</td>
+</tr>
+<tr>
+<td style="text-align:center">opacity</td>
+<td>透明度 ，类似于UIView的alpha</td>
+</tr>
+<tr>
+<td style="text-align:center">position</td>
+<td>图层中心点位置，类似于UIView的center</td>
+</tr>
+<tr>
+<td style="text-align:center">shadowColor</td>
+<td>阴影颜色</td>
+</tr>
+<tr>
+<td style="text-align:center">shadowOffset</td>
+<td>阴影偏移量</td>
+</tr>
+<tr>
+<td style="text-align:center">shadowOpacity</td>
+<td>阴影透明度，注意默认为0，如果设置阴影必须设置此属性</td>
+</tr>
+<tr>
+<td style="text-align:center">shadowPath</td>
+<td>阴影的形状</td>
+</tr>
+<tr>
+<td style="text-align:center">shadowRadius</td>
+<td>阴影模糊半径</td>
+</tr>
+<tr>
+<td style="text-align:center">sublayers</td>
+<td>子图层</td>
+</tr>
+<tr>
+<td style="text-align:center">sublayerTransform</td>
+<td>子图层形变</td>
+</tr>
+<tr>
+<td style="text-align:center">transform</td>
+<td>图层形变</td>
+</tr>
+</tbody>
+</table>
+<hr>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/10/Mac-下PHP环境的搭建/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Mac 下PHP环境的搭建
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/17/git-常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git 常用命令</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/25/iOS-响应链/" class="archive-article-date">
-  	<time datetime="2016-04-25T10:39:24.000Z" itemprop="datePublished">Apr 25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/25/iOS-响应链/">iOS 响应链</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li></ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/12/hello-world/" class="archive-article-date">
-  	<time datetime="2016-04-12T07:07:38.000Z" itemprop="datePublished">Apr 12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/12/hello-world/">Hello World</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/10/Mac-下PHP环境的搭建/" class="archive-article-date">
-  	<time datetime="2016-04-10T13:53:52.000Z" itemprop="datePublished">Apr 10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/10/Mac-下PHP环境的搭建/">Mac 下PHP环境的搭建</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-	</div>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="CALayer" data-title="CALayer的属性" data-url="http://xiaodev.cn/2016/03/20/CALayer/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/03/20/CALayer/" class="archive-article-date">
-  	<time datetime="2016-03-20T13:41:04.000Z" itemprop="datePublished">Mar 20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/03/20/CALayer/">CALayer的属性</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/01/17/git-常用命令/" class="archive-article-date">
-  	<time datetime="2016-01-17T12:33:36.000Z" itemprop="datePublished">Jan 17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/17/git-常用命令/">Git 常用命令</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 </div>
       <footer id="footer">
@@ -421,8 +420,8 @@
 		mathjax: true,
 		animate: undefined,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: undefined

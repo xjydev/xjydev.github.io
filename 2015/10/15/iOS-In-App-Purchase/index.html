@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS In-App Purchase | 肖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.苹果iTunes Connect内购产品信息录入。1）创建app内购买项目（Create New），选择类型：
+1.消耗型项目
+对于消耗型 App 内购买项目，用户每次下载时都必须进行购买。一次性服务通常属于消耗型项目，例如钓鱼App 中的鱼饵。
+2.非消耗型项目
+对于非消耗型 App 内购买项目，用户仅需要购买一次。不会过期或随使用而减少的服务通常为非消耗型项目，例如游戏App 的新跑道。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS In-App Purchase">
+<meta property="og:url" content="http://xiaodev.cn/2015/10/15/iOS-In-App-Purchase/index.html">
+<meta property="og:site_name" content="肖">
+<meta property="og:description" content="1.苹果iTunes Connect内购产品信息录入。1）创建app内购买项目（Create New），选择类型：
+1.消耗型项目
+对于消耗型 App 内购买项目，用户每次下载时都必须进行购买。一次性服务通常属于消耗型项目，例如钓鱼App 中的鱼饵。
+2.非消耗型项目
+对于非消耗型 App 内购买项目，用户仅需要购买一次。不会过期或随使用而减少的服务通常为非消耗型项目，例如游戏App 的新跑道。">
+<meta property="og:updated_time" content="2016-04-14T13:37:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS In-App Purchase">
+<meta name="twitter:description" content="1.苹果iTunes Connect内购产品信息录入。1）创建app内购买项目（Create New），选择类型：
+1.消耗型项目
+对于消耗型 App 内购买项目，用户每次下载时都必须进行购买。一次性服务通常属于消耗型项目，例如钓鱼App 中的鱼饵。
+2.非消耗型项目
+对于非消耗型 App 内购买项目，用户仅需要购买一次。不会过期或随使用而减少的服务通常为非消耗型项目，例如游戏App 的新跑道。">
+  
+    <link rel="alternative" href="/atom.xml" title="肖" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://xjydev.github.io/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://xjydev.github.io/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Xiao JingYuan</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">分享让世界变得更美好</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/book">书籍</a></li>
+				        
+							<li><a href="/aboutme">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xjydev/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2727098133?source=blog&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="http://blog.csdn.net/xiao562994291" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/In-App-Purchase/" style="font-size: 10px;">In-App Purchase</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Runtime/" style="font-size: 10px;">Runtime</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/other/" style="font-size: 10px;">other</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/xiao562994291">我的csdn博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/xjydev/">我的github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.sina.com.cn/xiaojingyuanblog">我的新浪博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是肖景元，一名iOS工程师,一个相信未来世界会被我们族群统治的程序员,一个相信人类会灭亡，但是我们的程序将得到永存的编程者。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Xiao JingYuan</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://xjydev.github.io/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Xiao JingYuan</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">分享让世界变得更美好</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/book">书籍</a></li>
+		        
+					<li><a href="/aboutme">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xjydev/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2727098133?source=blog&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="http://blog.csdn.net/xiao562994291" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-iOS-In-App-Purchase" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/15/iOS-In-App-Purchase/" class="article-date">
+  	<time datetime="2015-10-15T12:35:01.000Z" itemprop="datePublished">2015-10-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS In-App Purchase
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/In-App-Purchase/">In-App Purchase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-苹果iTunes-Connect内购产品信息录入。"><a href="#1-苹果iTunes-Connect内购产品信息录入。" class="headerlink" title="1.苹果iTunes Connect内购产品信息录入。"></a>1.苹果iTunes Connect内购产品信息录入。</h2><h5 id="1）创建app内购买项目（Create-New），选择类型："><a href="#1）创建app内购买项目（Create-New），选择类型：" class="headerlink" title="1）创建app内购买项目（Create New），选择类型："></a>1）创建app内购买项目（Create New），选择类型：</h5><blockquote>
+<p>1.消耗型项目</p>
+<p>对于消耗型 App 内购买项目，用户每次下载时都必须进行购买。一次性服务通常属于消耗型项目，例如钓鱼App 中的鱼饵。</p>
+<p>2.非消耗型项目</p>
+<p>对于非消耗型 App 内购买项目，用户仅需要购买一次。不会过期或随使用而减少的服务通常为非消耗型项目，例如游戏App 的新跑道。</p>
+<p>3.自动续订订阅</p>
+<p>通过自动续订订阅，用户可以购买指定时间期限内的更新和动态内容。除非用户取消选择，否则订阅（例如杂志订阅等）会自动续订。</p>
+<p>4.免费订阅</p>
+<p>通过免费订阅，开发者可以将免费订阅内容放入“报刊杂志”。用户注册免费订阅后，该订阅内容将会出现在与该用户Apple ID 关联的所有设备上。请注意，免费订阅不会过期，并且仅在支持报刊杂志功能的 App 中提供。</p>
+<p>5.非续订订阅</p>
+<p>非续订订阅允许有时限性的营销服务。对于 App 内购买项目中的限时访问内容，就需使用非续订订阅。例如，导航App 中语音导航功能的一周订阅，或者年度订阅已存档的视频或音频的在线目录。</p>
+</blockquote>
+<p>一定要根据自己应用的情况选择正确，不然会被App Store审核团队拒绝。应用内的虚拟币要采用消耗型的，有固定时限的会员选择自动续订订阅。也可以只选择虚拟币充值自己后台购买的情况解决会员问题。</p>
+<h5 id="2）生成共享密钥"><a href="#2）生成共享密钥" class="headerlink" title="2）生成共享密钥"></a>2）生成共享密钥</h5><a id="more"></a>
+<p>共享密钥是在您联系我们的服务器获取 App 内购买项目收据时使用的唯一代码。没有共享密钥，您将无法在沙箱技术模式下测试自动续订 App 内购买项目。另外，共享密钥不能在 App Store 使用。<br>注：无论与哪个 App 相关联，您的所有自动续订订阅都将使用同一共享密钥。<br>此共享密钥用于后台服务器验证用户购买项目的凭证，生成新密要服务器也立即改变验证密钥。共享密钥在验证自动续订订阅类型项目的时候必须需要。</p>
+<h4 id="3）内购项目的状态"><a href="#3）内购项目的状态" class="headerlink" title="3）内购项目的状态"></a>3）内购项目的状态</h4><blockquote>
+<p>A) Pending Developer Approval – Your in apppurchase has been created but has not been tested in a sandbox environment andapproved by you.</p>
+<p>B) Approved By Developer – Your in apppurchase has been tested in a sandbox environment and has been approved by you.</p>
+<p>C) Waiting For Review – You have submittedyour in app purchase to be reviewed by Apple.</p>
+<p>D) In Review – Your in app purchase iscurrently being reviewed by Apple no edits can be made.</p>
+<p>E) Developer Action Required – In app purchasedetail changes that you submitted have been rejected. You are required to takeaction to edit the detail information or cancel the request to change thedetail information before this in app purchase can be reviewed again.(内购项目详情界面会提示那个地方出现了问题，稍微修改一下再次提交就行了)</p>
+<p>F) Ready for Sale – Apple has approved your inapp purchase to go live on the App Store with its associated application. Thein app purchase must be cleared for sale in iTunes Connect to be Ready forSale.</p>
+<p>G) Rejected – Apple has rejected your in apppurchase during the review process. If you have not already been contacted byApple with more information about your rejection, you may inquire through theContact Us section of iTunes Connect. A rejected in app purchase cannot bereinstated. You must create a new in app purchase if you still wish for it tobe sold.</p>
+<p>H) Developer Removed from Sale – You havemarked your in app purchase as not cleared for sale in iTunes Connect.</p>
+<h2 id="2-app端程序代码编写（代码仅供参考）"><a href="#2-app端程序代码编写（代码仅供参考）" class="headerlink" title="2.app端程序代码编写（代码仅供参考）"></a>2.app端程序代码编写（代码仅供参考）</h2></blockquote>
+<pre><code>#pragma mark - 支付以单利的形式展开
++(PurchasesObject*)SharePurchases
+{
+static dispatch_once_t onceToken;
+dispatch_once(&amp;onceToken, ^{
+    if (_purchase == nil) {
+
+        _purchase = [[super alloc]init];
+        [[SKPaymentQueue defaultQueue]addTransactionObserver:_purchase];
+    }
+});
+return _purchase;
+}
++(id)allocWithZone:(struct _NSZone *)zone
+{
+static dispatch_once_t onceToken;
+dispatch_once(&amp;onceToken, ^{
+    if (_purchase == nil) {
+
+        _purchase = [[super allocWithZone:zone]init];
+    }
+});
+return _purchase;
+}
++(id)alloc
+{
+return _purchase;
+
+}
+#pragma mark -支付钻石会员
+_alter = [[UIAlertView alloc]initWithTitle:@&quot;游客模式购买仅限当前设备使用所购买的权限，推荐您登录购买&quot; message:nil delegate:self cancelButtonTitle:@&quot;取消&quot; otherButtonTitles:@&quot;登陆购买（推荐）&quot;,@&quot;游客模式购买&quot; ,nil];
+//游客购买很重要，会被AppStore审核团队拒绝。
+#pragma mark -开始支付，根据录入内购项目的产品id去AppStore请求产品信息。
+if ([SKPaymentQueue canMakePayments]) {
+    NSSet * set = [NSSet setWithArray:@[ProductID]];
+    SKProductsRequest * request = [[SKProductsRequest alloc] initWithProductIdentifiers:set];
+    request.delegate = self;
+    [request start];
+
+}
+else
+{
+    NSLog(@&quot;无权限购买&quot;);
+}
+
+#pragma mark -SKProductsRequestDelegate 获取appstroe产品信息
+- (void)productsRequest:(SKProductsRequest *)requestdidReceiveResponse:(SKProductsResponse *)response {
+self.mySelfView.userInteractionEnabled = NO;
+[AFTools showHUD:@&quot;获取产品信息&quot; atView:self.mySelfView];
+NSLog(@&quot;-----------收到产品反馈信息--------------&quot;);
+NSArray *myProduct = response.products;
+if (myProduct.count == 0) {
+    [AFTools alertWithTitle:@&quot;购买失败&quot; message:@&quot;无法获取产品信息&quot;];
+    NSLog(@&quot;无法获取产品信息，购买失败。&quot;);
+    return;
+}
+NSLog(@&quot;产品products==%@&quot;,myProduct);
+NSLog(@&quot;产品id==%@&quot;,response.invalidProductIdentifiers);
+NSLog(@&quot;产品数量==========%lu&quot;,(unsigned long)myProduct.count);
+for(SKProduct *product in myProduct){
+    //        SKMutablePayment
+     NSLog(@&quot;SKProduct描述信息%@&quot;, [product description]);
+    NSLog(@&quot;产品标题 %@&quot; , product.localizedTitle);
+    NSLog(@&quot;产品描述信息: %@&quot; , product.localizedDescription);
+    NSLog(@&quot;价格: %@&quot; , product.price);
+    NSLog(@&quot;Product id: %@&quot; , product.productIdentifier);
+    SKMutablePayment *MpayMent = [SKMutablePayment paymentWithProduct:product];
+    NSLog(@&quot;===%@&quot;,MpayMent.requestData);
+    if ([[SKPaymentQueue defaultQueue]respondsToSelector:@selector(addPayment:)]){
+              [[SKPaymentQueue defaultQueue] addPayment:MpayMent];
+    }
+    else
+    {
+    }
+  }
+}
+  #pragmamark-SKPaymentTransactionObserver支付结果
+- (void)paymentQueue:(SKPaymentQueue *)queueupdatedTransactions:(NSArray *)transactions
+</code></pre><p>{</p>
+<pre><code>for (SKPaymentTransaction *transaction in transactions)
+{
+    switch (transaction.transactionState)
+    {
+        case SKPaymentTransactionStatePurchased://交易完成
+            NSLog(@&quot;交易完成transactionIdentifier= %@&quot;, transaction.transactionIdentifier);
+            [self completeTransaction:transaction];
+            break;
+        case SKPaymentTransactionStateFailed://交易失败
+            [self failedTransaction:transaction];
+            NSLog(@&quot;交易失败&quot;);
+            break;
+        case SKPaymentTransactionStateRestored://已经购买过该商品
+            [self restoreTransaction:transaction];
+            NSLog(@&quot;已买过商品&quot;);
+            break;
+        case SKPaymentTransactionStatePurchasing://商品添加进列表
+            NSLog(@&quot;商品添加进列表&quot;);
+            break;
+        default:
+            break;
+    }
+}
+
+}
+- (void)paymentQueue:(SKPaymentQueue *)queueremovedTransactions:(NSArray *)transactions
+{
+   NSLog(@&quot;---------------移除-------------&quot;);
+    }
+- (void)paymentQueue:(SKPaymentQueue *)queuerestoreCompletedTransactionsFailedWithError:(NSError *)error
+{
+NSLog(@&quot;---------------重复支付失败-------------&quot;);
+}
+- (void)completeTransaction:(SKPaymentTransaction *)transaction {
+NSLog(@&quot;-------------------支付完成--------------------&quot;);
+[self commitSeversSucceeWithTransaction:transaction];
+
+}
+
+-(void)restoreTransaction: (SKPaymentTransaction *)transaction
+{
+NSLog(@&quot;----------------重复支付-----------------&quot;);
+[self commitSeversSucceeWithTransaction:transaction];
+}
+- (void)commitSeversSucceeWithTransaction:(SKPaymentTransaction *)transaction
+{
+NSString * productIdentifier = transaction.payment.productIdentifier;
+NSString *transactionReceiptString= nil;
+//系统IOS7.0以上获取支付验证凭证的方式应该改变，切验证返回的数据结构也不一样了。
+if(IOSSystemVersion&gt;=7.0)
+{
+    NSURLRequest*appstoreRequest = [NSURLRequest requestWithURL:[[NSBundle mainBundle]appStoreReceiptURL]];
+    NSError *error = nil;
+    NSData * receiptData = [NSURLConnection sendSynchronousRequest:appstoreRequestreturningResponse:nil error:&amp;error];
+    transactionReceiptString = [receiptDatabase64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed];
+}
+else
+{
+    NSData * receiptData = transaction.transactionReceipt;
+    transactionReceiptString = [receiptDatabase64EncodedString];
+}
+    // 向自己的服务器验证购买凭证
+   }
+- (void)failedTransaction:(SKPaymentTransaction *)transaction {
+
+[[SKPaymentQueue defaultQueue] finishTransaction: transaction];
+}
+</code></pre><p>最好在客户端上键一个数据库，跟踪订单的状态，防止用户订单在某个环节出现问题时无法寻找到订单进行二次处理。<br>去AppStore请求数据时有时候会出现错误，你可以iTunes connect里的connect us去给他们写邮件反馈问题。但是大部分时间你等等就能解决了，对就是什么也不做等着。也许那一天他就好了。</p>
+<h2 id="3-后台服务器验证"><a href="#3-后台服务器验证" class="headerlink" title="3.后台服务器验证"></a>3.后台服务器验证</h2><h5 id="IOS-内支付有两种模式："><a href="#IOS-内支付有两种模式：" class="headerlink" title="IOS 内支付有两种模式："></a>IOS 内支付有两种模式：</h5><p>1) 内置模式</p>
+<p>2) 服务器模式</p>
+<h5 id="内置模式的流程可以简单的总结为以下几步："><a href="#内置模式的流程可以简单的总结为以下几步：" class="headerlink" title="内置模式的流程可以简单的总结为以下几步："></a>内置模式的流程可以简单的总结为以下几步：</h5><p>1) app从app store 获取产品信息</p>
+<p>2) 用户选择需要购买的产品</p>
+<p>3) app发送支付请求到app store</p>
+<p>4) app store 处理支付请求，并返回transaction信息</p>
+<p>5) app将购买的内容展示给用户</p>
+<h5 id="服务器模式的主要流程如下所示："><a href="#服务器模式的主要流程如下所示：" class="headerlink" title="服务器模式的主要流程如下所示："></a>服务器模式的主要流程如下所示：</h5><p>1) app从服务器获取产品标识列表</p>
+<p>2) app从app store 获取产品信息</p>
+<p>3) 用户选择需要购买的产品</p>
+<p>4) app 发送 支付请求到app store</p>
+<p>5) app store 处理支付请求，返回transaction信息</p>
+<p>6) app 将transaction receipt 发送到服务器</p>
+<p>7) 服务器收到收据后发送到app stroe验证收据的有效性</p>
+<p>8) app store 返回收据的验证结果</p>
+<p>9) 根据app store 返回的结果决定用户是否购买成功</p>
+<p>上述两种模式的不同之处主要在于：交易的收据验证，内建模式没有专门去验证交易收据，而服务器模式会使用独立的服务器去验证交易收据。内建模式简单快捷，但容易被破解。服务器模式流程相对复杂，但相对安全。</p>
+<p>开发之初，苹果方就很负责的告知:我们的服务器不稳定。真正开发之后，发现苹果方果然是很负责的，不仅是不稳定，而且足够慢。app store server验证一个收据需要3-6s时间。</p>
+<p>1.用户能否忍受3-6s的等待时间</p>
+<p>2.如果app store server 宕机，如何确保成功付费的用户能够得到正常服务。</p>
+<p>对于第一个问题，我们有理由相信用户完全无法忍受，所以采用异步验证的方式，服务器收到客户端的请求后，就将请求放到MCQ中去处理。</p>
+<p>对于第二个问题，由于苹果人员很负责人的告知：我们的服务器不稳定，所以不排除收据验证超时的情况。对于验证超时的收据，保存到数据库中并标记为验证超时，定时任务每隔一定的时间去app store验证，确保能够获取收据的验证结果。</p>
+<p>在开发过程中，需要测试应用是否能够正常的进行支付，但是又不能进行实际的支付，因此需要使用苹果提供的sandbox Store测试。Store Kit不能在iOS模拟器中使用，测试Store必须在真机上进行。</p>
+<p>在sandbox中验证receipt</p>
+<blockquote>
+<p><a href="https://sandbox.itunes.apple.com/verifyReceipt" target="_blank" rel="external">https://sandbox.itunes.apple.com/verifyReceipt</a></p>
+</blockquote>
+<p>在生产环境中验证receipt</p>
+<blockquote>
+<p><a href="https://buy.itunes.apple.com/verifyReceipt" target="_blank" rel="external">https://buy.itunes.apple.com/verifyReceipt</a></p>
+</blockquote>
+<p>在实际开发过程中，服务器端通过issandbox字段标识客户端传递的收据是沙盒环境中的收据还是生产环境中的收据。在提交苹果审核前，沙盒测试均无问题。提交苹果审核后，被告知购买失败，审核未通过。通过查询日志发现，客户端发送的交易收据为沙盒收据，但是issandbox字段却标识为生产环境。</p>
+<p>结论：苹果审核app时，仍然在沙盒环境下测试。但是客户端同事在app提交苹果审核时，将issandbox字段写死，设置为生产环境。这样就导致沙盒收据发送到<a href="https://buy.itunes.apple.com/verifyReceipt去验证。" target="_blank" rel="external">https://buy.itunes.apple.com/verifyReceipt去验证。</a></p>
+<p>那么如何自动的识别收据是否是sandbox receipt呢？</p>
+<h5 id="识别沙盒环境下收据的方法有两种："><a href="#识别沙盒环境下收据的方法有两种：" class="headerlink" title="识别沙盒环境下收据的方法有两种："></a>识别沙盒环境下收据的方法有两种：</h5><p>1.根据收据字段 “environment” = “sandbox”。</p>
+<p>2.根据收据验证接口返回的状态码</p>
+<p>如果status=21007，则表示当前的收据为沙盒环境下收据，需要调用<a href="https://sandbox.itunes.apple.com/verifyReceipt进行验证。" target="_blank" rel="external">https://sandbox.itunes.apple.com/verifyReceipt进行验证。</a></p>
+<h5 id="苹果反馈的状态码；"><a href="#苹果反馈的状态码；" class="headerlink" title="苹果反馈的状态码；"></a>苹果反馈的状态码；</h5><blockquote>
+<p>21000App Store无法读取你提供的JSON数据</p>
+<p>21002 收据数据不符合格式</p>
+<p>21003 收据无法被验证</p>
+<p>21004 你提供的共享密钥和账户的共享密钥不一致</p>
+<p>21005 收据服务器当前不可用</p>
+<p>21006 收据是有效的，但订阅服务已经过期。当收到这个信息时，解码后的收据信息也包含在返回内容中</p>
+<p>21007 收据信息是测试用（sandbox），但却被发送到产品环境中验证</p>
+<p>21008 收据信息是产品环境中使用，但却被发送到测试环境中验证</p>
+</blockquote>
+<p>先生产验证后测试验证，可以避免来回切换接口的麻烦。测试验证只要用你自己申请的测试appid的时候才会用到，用户不会拥有测试appid，所以不会走到测试验证这一步。即使生产验证出错，应该也不回返回21007状态吗。测试验证通过的用户名，和充值金额最好用数据库记录下来，方便公司资金核对。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/14/iOS-调试技巧/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          iOS 调试技巧
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/26/多线程GCD-NSThread-NSOperation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">多线程GCD NSThread NSOperation</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="iOS-In-App-Purchase" data-title="iOS In-App Purchase" data-url="http://xiaodev.cn/2015/10/15/iOS-In-App-Purchase/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Xiao JingYuan
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

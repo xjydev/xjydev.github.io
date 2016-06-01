@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS中delegate,Notification,KVO的选择 | 肖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在开发ios应用的时候，我们会经常遇到一个常见的问题：在不过分耦合的前提下，controllers间怎么进行通信。在IOS应用不断的出现三种模式来实现这种通信：
+
+1.委托delegation；
+2.通知中心Notification Center；
+3.键值观察key value observing，KVO
+
+因此，那为什么我们需要这些模式以及什么时候用它以及什么时候不用它。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS中delegate,Notification,KVO的选择">
+<meta property="og:url" content="http://xiaodev.cn/2015/12/14/iOS中delegate-Notification-KVO的选择/index.html">
+<meta property="og:site_name" content="肖">
+<meta property="og:description" content="在开发ios应用的时候，我们会经常遇到一个常见的问题：在不过分耦合的前提下，controllers间怎么进行通信。在IOS应用不断的出现三种模式来实现这种通信：
+
+1.委托delegation；
+2.通知中心Notification Center；
+3.键值观察key value observing，KVO
+
+因此，那为什么我们需要这些模式以及什么时候用它以及什么时候不用它。">
+<meta property="og:updated_time" content="2016-04-14T13:07:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS中delegate,Notification,KVO的选择">
+<meta name="twitter:description" content="在开发ios应用的时候，我们会经常遇到一个常见的问题：在不过分耦合的前提下，controllers间怎么进行通信。在IOS应用不断的出现三种模式来实现这种通信：
+
+1.委托delegation；
+2.通知中心Notification Center；
+3.键值观察key value observing，KVO
+
+因此，那为什么我们需要这些模式以及什么时候用它以及什么时候不用它。">
+  
+    <link rel="alternative" href="/atom.xml" title="肖" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://xjydev.github.io/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://xjydev.github.io/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Xiao JingYuan</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">分享让世界变得更美好</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/book">书籍</a></li>
+				        
+							<li><a href="/aboutme">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xjydev/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2727098133?source=blog&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="http://blog.csdn.net/xiao562994291" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/In-App-Purchase/" style="font-size: 10px;">In-App Purchase</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Runtime/" style="font-size: 10px;">Runtime</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/other/" style="font-size: 10px;">other</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/xiao562994291">我的csdn博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/xjydev/">我的github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.sina.com.cn/xiaojingyuanblog">我的新浪博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是肖景元，一名iOS工程师,一个相信未来世界会被我们族群统治的程序员,一个相信人类会灭亡，但是我们的程序将得到永存的编程者。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Xiao JingYuan</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://xjydev.github.io/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Xiao JingYuan</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">分享让世界变得更美好</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/book">书籍</a></li>
+		        
+					<li><a href="/aboutme">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xjydev/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2727098133?source=blog&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="http://blog.csdn.net/xiao562994291" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-iOS中delegate-Notification-KVO的选择" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/14/iOS中delegate-Notification-KVO的选择/" class="article-date">
+  	<time datetime="2015-12-14T13:58:43.000Z" itemprop="datePublished">2015-12-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS中delegate,Notification,KVO的选择
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在开发ios应用的时候，我们会经常遇到一个常见的问题：在不过分耦合的前提下，controllers间怎么进行通信。在IOS应用不断的出现三种模式来实现这种通信：</p>
+<blockquote>
+<p>1.委托delegation；</p>
+<p>2.通知中心Notification Center；</p>
+<p>3.键值观察key value observing，KVO</p>
+</blockquote>
+<p>因此，那为什么我们需要这些模式以及什么时候用它以及什么时候不用它。<br><a id="more"></a><br>下面完全根据我的开发经验来讨论这三中模式。我将讨论为什么我觉得某种模式要好于另外一种模式以及为什么我觉得在一定的环境下某中模式比较好。我给出的这 些原因并不是圣经，而仅仅是个人观点。如果你有什么不同的观点或者还可以进行补充的地方，可以联系我，一起讨论。</p>
+<h3 id="上面的三种模式是什么？"><a href="#上面的三种模式是什么？" class="headerlink" title="上面的三种模式是什么？"></a>上面的三种模式是什么？</h3><p>三种模式都是一个对象传递事件给另外一个对象，并且不要他们有耦合。三种模式都是对象来通知某个事件发生了的方法，或者更准确的说，是允许其他的对象收到 这种事件的方法。这对于一个对象来说，是非常普通而且必须做的任务，因为没有通信，controllers将不能整合到整个应用中。controller 的另外一个目的是尽可能的自包含。我们希望controllers以自己的方式存在，在controllers层面上不能与其他的controllers 进行耦合。Controllers能够穿件其他的controllers而且他们之间可以自由通信，但是我们不希望controller又回接到创建自己 的controller。如果我们耦合了他们，那么我们将不能复用他们，以及完全失去对应用中一个独立的组件的控制。</p>
+<p>这三种模式给controllers(也可以是其他的对象）提供通信的方法。下面将描述如何在ios应用中使用这些模式，同样需要注意的他们在其他的地方也会用到，并且确实是存在。</p>
+<h3 id="delegation"><a href="#delegation" class="headerlink" title="delegation"></a>delegation</h3><p>当我们第一次编写ios应用时，我们注意到不断的在使用“delegate”，并且贯穿于整个SDK。delegation模式不是IOS特有的模式，而是依赖与你过去拥有的编程背景。针对它的优势以及为什么经常使用到，这种模式可能不是很明显的。</p>
+<p>delegation的基本特征是，一个controller定义了一个协议（即一系列的方法定义）。该协议描述了一个delegate对象为了能够响应 一个controller的事件而必须做的事情。协议就是delegator说，“如果你想作为我的delegate，那么你就必须实现这些方法”。实现 这些方法就是允许controller在它的delegate能够调用这些方法，而它的delegate知道什么时候调用哪种方法。delegate可以 是任何一种对象类型，因此controller不会与某种对象进行耦合，但是当该对象尝试告诉委托事情时，该对象能确定delegate将响应。</p>
+<h5 id="delegate的优势："><a href="#delegate的优势：" class="headerlink" title="delegate的优势："></a>delegate的优势：</h5><p>1.非常严格的语法。所有将听到的事件必须是在delegate协议中有清晰的定义。</p>
+<p>2.如果delegate中的一个方法没有实现那么就会出现编译警告/错误</p>
+<p>3.协议必须在controller的作用域范围内定义</p>
+<p>4.在一个应用中的控制流程是可跟踪的并且是可识别的；</p>
+<p>5.在一个控制器中可以定义定义多个不同的协议，每个协议有不同的delegates</p>
+<p>6.没有第三方对象要求保持/监视通信过程。</p>
+<p>7.能够接收调用的协议方法的返回值。这意味着delegate能够提供反馈信息给controller</p>
+<h5 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h5><p>1.需要定义很多代码：1.协议定义；2.controller的delegate属性；3.在delegate本身中实现delegate方法定义</p>
+<p>2.在释放代理对象时，需要小心的将delegate改为nil。一旦设定失败，那么调用释放对象的方法将会出现内存crash</p>
+<p>3.在一个controller中有多个delegate对象，并且delegate是遵守同一个协议，但还是很难告诉多个对象同一个事件，不过有可能。</p>
+<h3 id="notification"><a href="#notification" class="headerlink" title="notification"></a>notification</h3><p>在IOS应用开发中有一个”Notification Center“的概念。它是一个单例对象，允许当事件发生时通知一些对象。它允许我们在低程度耦合的情况下，满足控制器与一个任意的对象进行通信的目的。 这种模式的基本特征是为了让其他的对象能够接收到在该controller中发生某种事件而产生的消息，controller用一个key（通知名称）。 这样对于controller来说是匿名的，其他的使用同样的key来注册了该通知的对象（即观察者）能够对通知的事件作出反应。</p>
+<h5 id="优势："><a href="#优势：" class="headerlink" title="优势："></a>优势：</h5><p>  1.不需要编写多少代码，实现比较简单；</p>
+<p>2.对于一个发出的通知，多个对象能够做出反应，即1对多的方式实现简单</p>
+<p>3.controller能够传递context对象（dictionary），context对象携带了关于发送通知的自定义的信息</p>
+<h5 id="缺点：-1"><a href="#缺点：-1" class="headerlink" title="缺点："></a>缺点：</h5><p>1.在编译期不会检查通知是否能够被观察者正确的处理； </p>
+<p>2.在释放注册的对象时，需要在通知中心取消注册；</p>
+<p>3.在调试的时候应用的工作以及控制过程难跟踪；</p>
+<p>4.需要第三方对喜爱那个来管理controller与观察者对象之间的联系；</p>
+<p>5.controller和观察者需要提前知道通知名称、UserInfo dictionary keys。如果这些没有在工作区间定义，那么会出现不同步的情况；</p>
+<p>6.通知发出后，controller不能从观察者获得任何的反馈信息。</p>
+<h3 id="KVO"><a href="#KVO" class="headerlink" title="KVO"></a>KVO</h3><p>KVO是一个对象能够观察另外一个对象的属性的值，并且能够发现值的变化。前面两种模式更加适合一个controller与任何其他的对象进行通信，而 KVO更加适合任何类型的对象侦听另外一个任意对象的改变（这里也可以是controller，但一般不是controller）。这是一个对象与另外一 个对象保持同步的一种方法，即当另外一种对象的状态发生改变时，观察对象马上作出反应。它只能用来对属性作出反应，而不会用来对方法或者动作作出反应。</p>
+<h5 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h5><p>1.能够提供一种简单的方法实现两个对象间的同步。例如：model和view之间同步；</p>
+<p>2.能够对非我们创建的对象，即内部对象的状态改变作出响应，而且不需要改变内部对象（SKD对象）的实现；</p>
+<p>3.能够提供观察的属性的最新值以及先前值；</p>
+<p>4.用key paths来观察属性，因此也可以观察嵌套对象；</p>
+<p>5.完成了对观察对象的抽象，因为不需要额外的代码来允许观察值能够被观察</p>
+<h5 id="缺点：-2"><a href="#缺点：-2" class="headerlink" title="缺点："></a>缺点：</h5><p>1.我们观察的属性必须使用strings来定义。因此在编译器不会出现警告以及检查；</p>
+<p>2.对属性重构将导致我们的观察代码不再可用；</p>
+<p>3.复杂的“IF”语句要求对象正在观察多个值。这是因为所有的观察代码通过一个方法来指向；</p>
+<p>4.当释放观察者时不需要移除观察者。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>从上面的分析中可以看出3种设计模式都有各自的优点和缺点。其实任何一种事物都是这样，问题是如何在正确的时间正确的环境下选择正确的事物。下面就讲讲如何发挥他们各自的优势，在哪种情况下使用哪种模式。注意使用任何一种模式都没有对和错，只有更适合或者不适合。 每一种模式都给对象提供一种方法来通知一个事件给其他对象，而且前者不需要知道侦听者。在这三种模式中，我认为KVO有最清晰的使用案例，而且针对某个需 求有清晰的实用性。而另外两种模式有比较相似的用处，并且经常用来给controller间进行通信。那么我们在什么情况使用其中之一呢？</p>
+<p>根据我开发iOS应用的经历，我发现有些过分的使用通知模式。我个人不是很喜欢使用通知中心。我发现用通知中心很难把握应用的执行流程。UserInfo dictionaries的keys到处传递导致失去了同步，而且在公共空间需要定义太多的常量。对于一个工作于现有的项目的开发者来说，如果过分的使用 通知中心，那么很难理解应用的流程。</p>
+<p>我觉得使用命名规则好的协议和协议方法定义对于清晰的理解controllers间的通信是很容易的。努力的定义这些协议方法将增强代码的可读性，以及更 好的跟踪你的app。代理协议发生改变以及实现都可通过编译器检查出来，如果没有将会在开发的过程中至少会出现crash，而不仅仅是让一些事情异常工 作。甚至在同一事件通知多控制器的场景中，只要你的应用在controller层次有着良好的结构，消息将在该层次上传递。该层次能够向后传递直至让所有 需要知道事件的controllers都知道。</p>
+<p>当然会有delegation模式不适合的例外情况出现，而且notification可能更加有效。例如：应用中所有的controller需要知道一个事件。然而这些类型的场景很少出现。另外一个例子是当你建立了一个架构而且需要通知该事件给正在运行中应用。</p>
+<p>根据经验，如果是属性层的时间，不管是在不需要编程的对象还是在紧紧绑定一个view对象的model对象，我只使用观察。对于其他的事件，我都会使用 delegate模式。如果因为某种原因我不能使用delegate，首先我将估计我的app架构是否出现了严重的错误。如果没有错误，然后才使用 notification。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/12/21/Runtim/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Runtime
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/28/Reac-Native/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React Native</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="iOS中delegate-Notification-KVO的选择" data-title="iOS中delegate,Notification,KVO的选择" data-url="http://xiaodev.cn/2015/12/14/iOS中delegate-Notification-KVO的选择/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Xiao JingYuan
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

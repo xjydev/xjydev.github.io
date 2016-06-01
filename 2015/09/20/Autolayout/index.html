@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Autolayout | 肖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言iOS8和iPhone6发布已经过去蛮久了,广大的果粉终于迎来了大屏iPhone,再也不用纠结为大屏买三星舍苹果了…但是对于iOS开发人员来说,迎来了和Android开发开发一样的问题—&amp;gt;各种屏幕的适配(是不是可以要求加工资的节奏).对于适配,网传各种有关Size Class的论点,前段时间太忙,一直没去研究,套用+总的话,苹果在适配方面提供的方法做的比安卓好太多了.自己实测之后,确实很">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Autolayout">
+<meta property="og:url" content="http://xiaodev.cn/2015/09/20/Autolayout/index.html">
+<meta property="og:site_name" content="肖">
+<meta property="og:description" content="前言iOS8和iPhone6发布已经过去蛮久了,广大的果粉终于迎来了大屏iPhone,再也不用纠结为大屏买三星舍苹果了…但是对于iOS开发人员来说,迎来了和Android开发开发一样的问题—&amp;gt;各种屏幕的适配(是不是可以要求加工资的节奏).对于适配,网传各种有关Size Class的论点,前段时间太忙,一直没去研究,套用+总的话,苹果在适配方面提供的方法做的比安卓好太多了.自己实测之后,确实很">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418795367881579.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418795540826221.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418795619564332.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418795649852495.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418795676961340.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418795705149952.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418795785522114.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418795810496572.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418795836776193.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418796024741244.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418796024510371.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418796063111839.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418796117706089.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418796117427802.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418796203135811.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418796203676119.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418796267535492.png">
+<meta property="og:image" content="http://cc.cocimg.com/api/uploads/20141217/1418796274163824.png">
+<meta property="og:updated_time" content="2016-04-14T13:16:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Autolayout">
+<meta name="twitter:description" content="前言iOS8和iPhone6发布已经过去蛮久了,广大的果粉终于迎来了大屏iPhone,再也不用纠结为大屏买三星舍苹果了…但是对于iOS开发人员来说,迎来了和Android开发开发一样的问题—&amp;gt;各种屏幕的适配(是不是可以要求加工资的节奏).对于适配,网传各种有关Size Class的论点,前段时间太忙,一直没去研究,套用+总的话,苹果在适配方面提供的方法做的比安卓好太多了.自己实测之后,确实很">
+<meta name="twitter:image" content="http://cc.cocimg.com/api/uploads/20141217/1418795367881579.png">
+  
+    <link rel="alternative" href="/atom.xml" title="肖" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://xjydev.github.io/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://xjydev.github.io/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Xiao JingYuan</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">分享让世界变得更美好</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/book">书籍</a></li>
+				        
+							<li><a href="/aboutme">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xjydev/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2727098133?source=blog&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="http://blog.csdn.net/xiao562994291" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/In-App-Purchase/" style="font-size: 10px;">In-App Purchase</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Runtime/" style="font-size: 10px;">Runtime</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/other/" style="font-size: 10px;">other</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/xiao562994291">我的csdn博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/xjydev/">我的github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.sina.com.cn/xiaojingyuanblog">我的新浪博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是肖景元，一名iOS工程师,一个相信未来世界会被我们族群统治的程序员,一个相信人类会灭亡，但是我们的程序将得到永存的编程者。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Xiao JingYuan</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://xjydev.github.io/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Xiao JingYuan</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">分享让世界变得更美好</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/book">书籍</a></li>
+		        
+					<li><a href="/aboutme">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xjydev/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2727098133?source=blog&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="http://blog.csdn.net/xiao562994291" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Autolayout" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/20/Autolayout/" class="article-date">
+  	<time datetime="2015-09-20T02:52:12.000Z" itemprop="datePublished">2015-09-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Autolayout
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>iOS8和iPhone6发布已经过去蛮久了,广大的果粉终于迎来了大屏iPhone,再也不用纠结为大屏买三星舍苹果了…但是对于iOS开发人员来说,迎来了和Android开发开发一样的问题—&gt;各种屏幕的适配(是不是可以要求加工资的节奏).对于适配,网传各种有关Size Class的论点,前段时间太忙,一直没去研究,套用+总的话,苹果在适配方面提供的方法做的比安卓好太多了.自己实测之后,确实很方便0.0(不过,还是想说,适配的核心始终是AutoLayout)<br><img src="http://cc.cocimg.com/api/uploads/20141217/1418795367881579.png" alt="image"></p>
+<h4 id="概念初探"><a href="#概念初探" class="headerlink" title="概念初探"></a>概念初探</h4><a id="more"></a>
+<p>iOS8之前,公司在开发项目时,先做的iPhone版,然后要求开发iPad版本,其实内容是完全一样的,只是UI变化了,但是我们就需要建立2个工程来分别对应实现.iOS8推出的Size Class,可以让我们在一个工程的storyboard中进行所有尺寸屏幕的适配,不仅是iPhone 4s-5/5s-6-6 Plus,还包括iPad界面.它引入了一种新的概念,抛弃传统意义上我们适配时所谓的具体宽高尺寸,把屏幕的宽和高分别分成两种情况:Compact-紧凑, Regular-正常(Any-任意,其实就是这2种的组合,所以我没分成3种情况).搭配起来是3*3,也就是无论如何变化,加起来也就9种,如上图. </p>
+<h6 id="1-实际应用中-这Compact-Any-Regular如何运用呢"><a href="#1-实际应用中-这Compact-Any-Regular如何运用呢" class="headerlink" title="1.实际应用中,这Compact,Any,Regular如何运用呢?"></a>1.实际应用中,这Compact,Any,Regular如何运用呢?</h6><p>w:Any h:Any 是我们刚建立工程时候默认选择的,算是一切描述的父类.其他的种类描述都是在此基础上变化的,比如:如果weight设为Any，height设置为Regular，那么在该状态下的界面元素在只要height为Regular，无论weight是Regular还是Compact的状态中都会存在.于是:</p>
+<p>w:Compact h:Compact - (w:Any h:Compact , w:Compact h:Any , w:Any h:Any)</p>
+<p>w:Regular h:Compact - (w:Any h:Compact , w:Regular h:Any , w:Any h:Any)</p>
+<p>w:Compact h:Regular - (w:Any h:Regular , w:Compact h:Any , w:Any h:Any)</p>
+<p>w:Regular h:Regular - (w:Any h:Regular , w:Regular h:Any , w:Any h:Any) </p>
+<h6 id="2-再来看一组数据和一张图-国外一位博主给出的-很形象"><a href="#2-再来看一组数据和一张图-国外一位博主给出的-很形象" class="headerlink" title="2. 再来看一组数据和一张图(国外一位博主给出的,很形象):"></a>2. 再来看一组数据和一张图(国外一位博主给出的,很形象):</h6><p>iPhone4S,iPhone5/5s,iPhone6</p>
+<p>竖屏：(w:Compact h:Regular)</p>
+<p>横屏：(w:Compact h:Compact)</p>
+<p>iPhone6 Plus</p>
+<p>竖屏：(w:Compact h:Regular)</p>
+<p>横屏：(w:Regular h:Compact)</p>
+<p>iPad</p>
+<p>竖屏：(w:Regular h:Regular)</p>
+<p>横屏：(w:Regular h:Regular)<br><img src="http://cc.cocimg.com/api/uploads/20141217/1418795540826221.png" alt="image"></p>
+<h6 id="3-可以总结为"><a href="#3-可以总结为" class="headerlink" title="3.可以总结为:"></a>3.可以总结为:</h6><p>如果项目不支持横屏显示,使用w:Compact h:Regular(或者直接取消使用Size Class)<br>如果项目支持横屏显示,使用w:Compact h:Regular+w:Any h:Compact<br>对于一些公有的约束(任意组合中都适用),一般放在w:Any h:Any中设置<br>iPad同理<br>所以,我觉得Size Class最大的帮助是,解决横屏适配和iPhone iPad共享一个设计板…(个人意见) </p>
+<h4 id="试验反馈一"><a href="#试验反馈一" class="headerlink" title="试验反馈一"></a>试验反馈一</h4><p>######1.首先,先建立一个工程,展开如下页面<br><img src="http://cc.cocimg.com/api/uploads/20141217/1418795619564332.png" alt="image"></p>
+<p>PS:这是iOS8的新特性,真的用到项目里需要等放弃兼容iOS7 。。。显然,目前还是不行的 </p>
+<h6 id="2-在Any-Any情况下-放置一个Label-并设置约束上-左-下-右为0-0-20-0"><a href="#2-在Any-Any情况下-放置一个Label-并设置约束上-左-下-右为0-0-20-0" class="headerlink" title="2.在Any Any情况下,放置一个Label,并设置约束上-左-下-右为0-0-20-0"></a>2.在Any Any情况下,放置一个Label,并设置约束上-左-下-右为0-0-20-0</h6><p> <img src="http://cc.cocimg.com/api/uploads/20141217/1418795649852495.png" alt="image"></p>
+<p><img src="http://cc.cocimg.com/api/uploads/20141217/1418795676961340.png" alt="image"></p>
+<h6 id="3-在Compact-Any情况下-又放置一个Label-并设置约束上为20"><a href="#3-在Compact-Any情况下-又放置一个Label-并设置约束上为20" class="headerlink" title="3.在Compact Any情况下,又放置一个Label,并设置约束上为20"></a>3.在Compact Any情况下,又放置一个Label,并设置约束上为20</h6><p> <img src="http://cc.cocimg.com/api/uploads/20141217/1418795705149952.png" alt="image"></p>
+<h6 id="4-继续在Compact-Any情况下-来看看横屏状态下的变化"><a href="#4-继续在Compact-Any情况下-来看看横屏状态下的变化" class="headerlink" title="4.继续在Compact Any情况下,来看看横屏状态下的变化"></a>4.继续在Compact Any情况下,来看看横屏状态下的变化</h6><p> <img src="http://cc.cocimg.com/api/uploads/20141217/1418795785522114.png" alt="image"></p>
+<h6 id="5-最后切换到Regular-Any下-完成6-Plus-的横屏显示"><a href="#5-最后切换到Regular-Any下-完成6-Plus-的横屏显示" class="headerlink" title="5.最后切换到Regular Any下,完成6 Plus 的横屏显示"></a>5.最后切换到Regular Any下,完成6 Plus 的横屏显示</h6><p> <img src="http://cc.cocimg.com/api/uploads/20141217/1418795810496572.png" alt="image"></p>
+<h4 id="试验反馈二"><a href="#试验反馈二" class="headerlink" title="试验反馈二"></a>试验反馈二</h4><p>试验一里面,验证了一下概念中所列举的各个屏幕适用的组合,接下来,算是Size Class 解决横屏的妙用</p>
+<p><img src="http://cc.cocimg.com/api/uploads/20141217/1418795836776193.png" alt="image"></p>
+<p><img src="http://cc.cocimg.com/api/uploads/20141217/1418796024741244.png" alt="image"></p>
+<p><img src="http://cc.cocimg.com/api/uploads/20141217/1418796024510371.png" alt="image"></p>
+<p><img src="http://cc.cocimg.com/api/uploads/20141217/1418796063111839.png" alt="image"></p>
+<p>PS:运用于,横屏适配,重新排版竖屏时候的UI布局 </p>
+<p>除了改动不同组合下约束,也能改动控件在不同组合下是否显示</p>
+<p><img src="http://cc.cocimg.com/api/uploads/20141217/1418796117706089.png" alt="image"></p>
+<p><img src="http://cc.cocimg.com/api/uploads/20141217/1418796117427802.png" alt="image"></p>
+<h4 id="试验反馈三"><a href="#试验反馈三" class="headerlink" title="试验反馈三"></a>试验反馈三</h4><p>AutoLayout这里不给具体如何设置,因为不知道如何写,感觉还是大家多动手去写,去试,最有效了</p>
+<p>下面给出AutoLayout设置的图解</p>
+<p><img src="http://cc.cocimg.com/api/uploads/20141217/1418796203135811.png" alt="image"></p>
+<p><img src="http://cc.cocimg.com/api/uploads/20141217/1418796203676119.png" alt="image"></p>
+<p>简答测试Demo结果图:</p>
+<p><img src="http://cc.cocimg.com/api/uploads/20141217/1418796267535492.png" alt="image"></p>
+<p>如果不横屏,也可以直接取消Size Classes(图不一样,不同时间写的…囧)</p>
+<p><img src="http://cc.cocimg.com/api/uploads/20141217/1418796274163824.png" alt="image"></p>
+<p>最终Demo</p>
+<p>Demo的Github地址:<a href="https://github.com/ConanMTHu/Size-Classes-Demo/tree/master" target="_blank" rel="external">https://github.com/ConanMTHu/Size-Classes-Demo/tree/master</a></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>直接说以后都应该使用storyboard＋autolayout感觉是不负责的说法，但是深入思考autolayout是很有必要的!</p>
+<p>如下情况使用autolayout会有帮助: </p>
+<p>当需要展示的内容很多并且尺寸不固定;<br>程序需支持屏幕旋转（主要是iPad程序，iPhone程序横屏的场景有点非主流,也不排除..手游..);<br>程序通用于iPhone和iPad(最重要的吧).<br>但storyboard中使用autolayout有利有弊，好处当然是可视化，实现简单功能很节省时间，但也有弊端，例如不小心移动一个控件就会让弄乱那些约束或者控件一多加上自定义的XXXXXXXX </p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="http://www.devtalking.com/articles/adaptive-layout-for-iphone6-1/" target="_blank" rel="external">为iPhone6设计自适应布局(一)</a></p>
+<p><a href="http://www.devtalking.com/articles/adaptive-layout-for-iphone6-2/" target="_blank" rel="external">为iPhone6设计自适应布局(二）</a></p>
+<p><a href="http://blog.csdn.net/liangliang103377/article/details/40080071" target="_blank" rel="external">关于自动布局（Autolayout）</a></p>
+<p><a href="https://onevcat.com/2014/07/ios-ui-unique/" target="_blank" rel="external">WWDC 2014 Session笔记 - iOS界面开发的大一统</a></p>
+<p><a href="http://joywii.github.io/blog/2014/09/24/ios8-size-classesde-li-jie-yu-shi-yong/" target="_blank" rel="external">iOS8 Size Classes的理解与使用</a></p>
+<p><a href="http://blog.csdn.net/ysy441088327/article/details/12558097" target="_blank" rel="external">Auto Layout 进阶</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/26/多线程GCD-NSThread-NSOperation/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          多线程GCD NSThread NSOperation
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/12/github-hexo搭建博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">github hexo搭建博客</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Autolayout" data-title="Autolayout" data-url="http://xiaodev.cn/2015/09/20/Autolayout/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Xiao JingYuan
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

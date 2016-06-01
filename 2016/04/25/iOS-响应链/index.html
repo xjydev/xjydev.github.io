@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iOS 响应链 | 肖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.Gesture RecognizersGesture Recognizers是在iOS3.2引入的，可以用来识别手势、简化定制视图事件处理的对象。Gesture Recognizers的基类为UIGestureRecognizer，这一个抽象基类，定义了实现底层手势识别行为的编程接口。在UIKit框架中提供了6个具体的手势识别类，用来识别常见的手势。这6个手势识别器类为:
+
+
+UITapGes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 响应链">
+<meta property="og:url" content="http://xiaodev.cn/2016/04/25/iOS-响应链/index.html">
+<meta property="og:site_name" content="肖">
+<meta property="og:description" content="1.Gesture RecognizersGesture Recognizers是在iOS3.2引入的，可以用来识别手势、简化定制视图事件处理的对象。Gesture Recognizers的基类为UIGestureRecognizer，这一个抽象基类，定义了实现底层手势识别行为的编程接口。在UIKit框架中提供了6个具体的手势识别类，用来识别常见的手势。这6个手势识别器类为:
+
+
+UITapGes">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201211/17/1353162803_1262.png">
+<meta property="og:updated_time" content="2016-04-25T14:23:31.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 响应链">
+<meta name="twitter:description" content="1.Gesture RecognizersGesture Recognizers是在iOS3.2引入的，可以用来识别手势、简化定制视图事件处理的对象。Gesture Recognizers的基类为UIGestureRecognizer，这一个抽象基类，定义了实现底层手势识别行为的编程接口。在UIKit框架中提供了6个具体的手势识别类，用来识别常见的手势。这6个手势识别器类为:
+
+
+UITapGes">
+<meta name="twitter:image" content="http://img.my.csdn.net/uploads/201211/17/1353162803_1262.png">
+  
+    <link rel="alternative" href="/atom.xml" title="肖" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="http://xjydev.github.io/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://xjydev.github.io/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Xiao JingYuan</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">分享让世界变得更美好</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/book">书籍</a></li>
+				        
+							<li><a href="/aboutme">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xjydev/" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/u/2727098133?source=blog&is_all=1" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="http://blog.csdn.net/xiao562994291" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/In-App-Purchase/" style="font-size: 10px;">In-App Purchase</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/Runtime/" style="font-size: 10px;">Runtime</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/ios/" style="font-size: 10px;">ios</a> <a href="/tags/other/" style="font-size: 10px;">other</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.csdn.net/xiao562994291">我的csdn博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/xjydev/">我的github</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.sina.com.cn/xiaojingyuanblog">我的新浪博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是肖景元，一名iOS工程师,一个相信未来世界会被我们族群统治的程序员,一个相信人类会灭亡，但是我们的程序将得到永存的编程者。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Xiao JingYuan</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img src="http://xjydev.github.io/img/avatar.jpeg" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Xiao JingYuan</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">分享让世界变得更美好</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/book">书籍</a></li>
+		        
+					<li><a href="/aboutme">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xjydev/" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/u/2727098133?source=blog&is_all=1" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="http://blog.csdn.net/xiao562994291" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-iOS-响应链" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/25/iOS-响应链/" class="article-date">
+  	<time datetime="2016-04-25T10:39:24.000Z" itemprop="datePublished">2016-04-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iOS 响应链
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-Gesture-Recognizers"><a href="#1-Gesture-Recognizers" class="headerlink" title="1.Gesture Recognizers"></a>1.Gesture Recognizers</h3><p>Gesture Recognizers是在iOS3.2引入的，可以用来识别手势、简化定制视图事件处理的对象。Gesture Recognizers的基类为UIGestureRecognizer，这一个抽象基类，定义了实现底层手势识别行为的编程接口。在UIKit框架中提供了6个具体的手势识别类，用来识别常见的手势。这6个手势识别器类为:</p>
+<blockquote>
+<ul>
+<li>UITapGestureRecognizer:用来识别点击手势,包括单击，双击，甚至三击等。</li>
+<li>UIPinchGestureRecognizer:用来识别手指捏合手势。</li>
+<li>UIPanGestureRecognizer:用来识别拖动手势。</li>
+<li>UISwipeGestureRecognizer:用来识别Swipe手势。</li>
+<li>UIRotationGestureRecognizer:用来识别旋转手势。</li>
+<li>UILongPressGestureRecognizer:用来识别长按手势<a id="more"></a>
+为了识别手势，需要将Gesture Recognizers关联到其检测触摸事件的view上,可以使用UIView的addGestureRecognizer:方法将手势识别器绑定到视图上。Gesture Recognizers在触摸事件处理流程中，处于观察者的角色，其不是view层级结构的一部分，所以也不参与responder chain。在将触摸事件发送给hit-test view之前，系统会先将触摸事件发送到hit-test view上绑定的或hit-test view父视图(superview)上绑定的Gesture Recognizers上。其流程大概如下图所示:<br><img src="http://img.my.csdn.net/uploads/201211/17/1353162803_1262.png" alt="image"><br>注:图中view与Gesture Recognizer的关系是,Gesture Recognizer关联在view或view的superview(可能多级)上。<h3 id="gesture-recognizer-和响应链"><a href="#gesture-recognizer-和响应链" class="headerlink" title="gesture recognizer 和响应链"></a>gesture recognizer 和响应链</h3></li>
+</ul>
+</blockquote>
+<p>Gesture Recognizers可能会延迟将触摸事件发送到hit-test view上,默认情况下，当Gesture Recognizers识别到手势后，会向hit-test view发送cancel消息,来取消之前发给hit-test view的事件。控制这个流程的是UIGestureRecognizer的三个属性</p>
+<blockquote>
+<ul>
+<li>cancelsTouchesInView (默认为YES)</li>
+<li>delaysTouchesBegan (默认为NO)</li>
+<li>delaysTouchesEnded (默认为YES)</li>
+</ul>
+</blockquote>
+<p>cancelsTouchesInView为YES,表示当Gesture Recognizers识别到手势后，会向hit-test view发送 touchesCancelled:withEvent:消息来取消hit-test view对此触摸序列的处理,这样只有Gesture Recognizers能响应此触摸序列，hit-test view不再响应。如果为NO,则不发送touchesCancelled:withEvent:消息给hit-test view,这样会使Gesture Recognizers和hit-test view同时响应触摸序列。</p>
+<p>delaysTouchesBegan为NO，表示触摸序列开始时，而手势识别器还未识别出此手势时，touch事件会同时发向hit-test view,这样在手势识别器还未识别出此手势，hit-test view同时也可以收到同样的触摸事件。如果为YES,则在手势识别器在识别手势的过程中，不会有任何触摸事件发送给hit-test view,如果手势识别器最终识别到了手势，则也不会发送任何消息(包括touchesCancelled:withEvent:)给hit-test view;若干手势识别最终没有识别到手势，则所有的触摸事件在发给hit-test view处理。关于这个特性，可参考UIScrollView的delaysContentTouches属性。这样属性也谨慎使用，使用不当会导致UI无响应。</p>
+<p>delaysTouchesEnded,在文档上的解释是，当手势识别器在识别手势时，对于UITouchPhaseEnded阶段的touch会延迟发送给hit-test view,在手势识别成功后,发送给hit-test view cancel消息，手势识别失败时，发送原来的end消息。其给出了了这样的例子识别双击操作的UITapGestureRecognizer对象，其numberOfTapsRequired设为2,在用户进行双击操作时，如果delaysTouchesEnded为NO,则hit-test view中的调用序列为</p>
+<p>touchesBegan:withEvent:,</p>
+<p>touchesEnded:withEvent:,</p>
+<p>touchesBegan:withEvent:,</p>
+<p>and touchesCancelled:withEvent:</p>
+<p>如果delaysTouchesEnded为YES,则调用序列为:</p>
+<p>touchesBegan:withEvent:,</p>
+<p>touchesBegan:withEvent:,</p>
+<p>touchesCancelled:withEvent:,</p>
+<p>touchesCancelled:withEvent:</p>
+<p>但我在实际测试时，并非如此,实际测试的结果是,如果delaysTouchesEnded为NO,则调用序列为:</p>
+<p>touchesBegan:withEvent:,</p>
+<p>touchesEnded:withEvent:,</p>
+<p>TapGestureRecognizer 检测到双击</p>
+<p>如果delaysTouchesEnded为YES,则调用序列为:</p>
+<p>touchesBegan:withEvent:,</p>
+<p>touchesEnded:withEvent:,</p>
+<p>TapGestureRecognizer 检测到双击</p>
+<p>touchesCancelled:withEvent:</p>
+<p>这个问题还没搞清楚!</p>
+<h3 id="事件的传递和响应链"><a href="#事件的传递和响应链" class="headerlink" title="事件的传递和响应链"></a>事件的传递和响应链</h3><blockquote>
+<ul>
+<li><p>传递链：由系统向离用户最近的view传递。UIKit –&gt; active app’s event queue –&gt; window –&gt; root view –&gt;……–&gt;lowest view</p>
+</li>
+<li><p>响应链：由离用户最近的view向系统传递。initial view –&gt; super view –&gt; …..–&gt; view controller –&gt; window –&gt; Application</p>
+</li>
+</ul>
+</blockquote>
+<h5 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h5><p><a href="http://blog.csdn.net/chun799/article/details/8194893" target="_blank" rel="external">http://blog.csdn.net/chun799/article/details/8194893</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/30/CocoaPods/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          CocoaPods
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/12/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="iOS-响应链" data-title="iOS 响应链" data-url="http://xiaodev.cn/2016/04/25/iOS-响应链/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Xiao JingYuan
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: undefined,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: undefined
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
