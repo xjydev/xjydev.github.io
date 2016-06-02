@@ -16,7 +16,7 @@
 <meta property="og:description" content="ReactiveCocoa是Github开源的一款cocoa FRP 框架。
 函数式编程函数式编程是种编程范式，它将电脑运算视为函数的计算。函数编程语言最重要的基础是 λ 演算（lambda calculus）。而且λ演算的函数可以接受函数当作输入（参数）和输出（返回值）。和指令式编程相比，函数式编程强调函数的计算比指令的执行重要。和过程化编程相比，函数式编程里，函数的计算可随时调用。
 响应式编程">
-<meta property="og:updated_time" content="2016-06-02T09:08:04.000Z">
+<meta property="og:updated_time" content="2016-06-02T09:10:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ReactiveCocoa 响应式编程">
 <meta name="twitter:description" content="ReactiveCocoa是Github开源的一款cocoa FRP 框架。
@@ -276,7 +276,7 @@ throttle: 它接收一个时间间隔interval作为参数，如果Signal发出�
 and、or、not NSNumber中Bool的与、或、非操作，将Signal发出的事件内容转化。
 </code></pre><p>还可以根据方法（SEL类型）来创建Signal，每当该方法被调用时，Signal都会将此方法被传入的参数打包成RACTuple元组类型来发送next事件给它的接受者。rac_signalForSelector:和rac_signalForSelector:fromProtocol:这两个方法都能通过指定的方法来创建Signal。</p>
 <h4 id="RACSubscriber"><a href="#RACSubscriber" class="headerlink" title="RACSubscriber"></a>RACSubscriber</h4><p>RACSubscriber是一个协议，包含了向订阅者发送事件的方法。</p>
-<figure class="highlight plain"><figcaption><span>createSignal:^RACDisposable *(id<racsubscriber> subscriber) &#123;</racsubscriber></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">         [subscriber sendNext:@(YES)];</span><br><span class="line">         [subscriber sendCompleted];</span><br><span class="line">    return nil;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[RACSignal createSignal:^RACDisposable *(id&lt;RACSubscriber&gt; subscriber) &#123;</span><br><span class="line">             [subscriber sendNext:@(YES)];</span><br><span class="line">             [subscriber sendCompleted];</span><br><span class="line">        return nil;</span><br><span class="line">    &#125;];</span><br></pre></td></tr></table></figure>
 <p>上面工厂方法用于创建一个Signal，当Signal被订阅时，createSignal:的参数block中的内容被执行。block的参数是一个实现RACSubscriber协议的对象，然后向这个订阅者发送了next事件（内容为NSNumber类型的@YES值）和completed事件。<br>PS：除此之外RACSubscriber还有sendError:和didSubscribeWithDisposable:两个方法。</p>
 <h4 id="RACDisposable"><a href="#RACDisposable" class="headerlink" title="RACDisposable"></a>RACDisposable</h4><p>你会发现RACSignal (Subscription)类别中所有方法的返回值类型都是RACDisposable，它的dispose方法可以让我们手动移除订阅者。举个栗子：</p>
 <pre><code>RACSignal *backgroundColorSignal =
