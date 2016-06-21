@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>多线程GCD NSThread NSOperation | 肖</title>
+  <title>多线程GCD NSThread NSOperation | 肖的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在 iOS 中其实目前有 4 套多线程方案，他们分别是：
 
@@ -20,7 +20,7 @@ Pthreads其实这个方案不用说的，只是拿来充个数，为了让">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多线程GCD NSThread NSOperation">
 <meta property="og:url" content="http://xiaodev.cn/2015/09/26/多线程GCD-NSThread-NSOperation/index.html">
-<meta property="og:site_name" content="肖">
+<meta property="og:site_name" content="肖的博客">
 <meta property="og:description" content="在 iOS 中其实目前有 4 套多线程方案，他们分别是：
 
 
@@ -32,7 +32,7 @@ NSOperation &amp;amp; NSOperationQueue
 
 所以接下来，我会一一讲解这些方案的使用方法和一些案例。在将这些内容的时候，我也会顺带说一些多线程周边产品。比如： 线程同步、 延时执行、 单例模式 等等。
 Pthreads其实这个方案不用说的，只是拿来充个数，为了让">
-<meta property="og:updated_time" content="2016-04-14T13:06:45.000Z">
+<meta property="og:updated_time" content="2016-06-20T06:07:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程GCD NSThread NSOperation">
 <meta name="twitter:description" content="在 iOS 中其实目前有 4 套多线程方案，他们分别是：
@@ -47,7 +47,7 @@ NSOperation &amp;amp; NSOperationQueue
 所以接下来，我会一一讲解这些方案的使用方法和一些案例。在将这些内容的时候，我也会顺带说一些多线程周边产品。比如： 线程同步、 延时执行、 单例模式 等等。
 Pthreads其实这个方案不用说的，只是拿来充个数，为了让">
   
-    <link rel="alternative" href="/atom.xml" title="肖" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="肖的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="http://xjydev.github.io/img/favicon.ico">
@@ -68,7 +68,7 @@ Pthreads其实这个方案不用说的，只是拿来充个数，为了让">
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Xiao JingYuan</a></h1>
+		  <h1 class="header-author"><a href="/">Xiao Jingyuan</a></h1>
 		</hgroup>
 
 		
@@ -110,7 +110,7 @@ Pthreads其实这个方案不用说的，只是拿来充个数，为了让">
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -187,7 +187,7 @@ Pthreads其实这个方案不用说的，只是拿来充个数，为了让">
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Xiao JingYuan</h1>
+  		<h1 class="header-author js-mobile-header hide">Xiao Jingyuan</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -197,7 +197,7 @@ Pthreads其实这个方案不用说的，只是拿来充个数，为了让">
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">Xiao JingYuan</h1>
+			  <h1 class="header-author">Xiao Jingyuan</h1>
 			</hgroup>
 			
 			<p class="header-subtitle">分享让世界变得更美好</p>
@@ -276,7 +276,7 @@ Pthreads其实这个方案不用说的，只是拿来充个数，为了让">
 </ul>
 </blockquote>
 <p>所以接下来，我会一一讲解这些方案的使用方法和一些案例。在将这些内容的时候，我也会顺带说一些多线程周边产品。比如： 线程同步、 延时执行、 单例模式 等等。</p>
-<h3 id="Pthreads"><a href="#Pthreads" class="headerlink" title="Pthreads"></a>Pthreads</h3><p>其实这个方案不用说的，只是拿来充个数，为了让大家了解一下就好了。百度百科里是这么说的：</p>
+<h2 id="Pthreads"><a href="#Pthreads" class="headerlink" title="Pthreads"></a>Pthreads</h2><p>其实这个方案不用说的，只是拿来充个数，为了让大家了解一下就好了。百度百科里是这么说的：</p>
 <blockquote>
 <p>POSIX线程（POSIX threads），简称Pthreads，是线程的POSIX标准。该标准定义了创建和操纵线程的一整套API。在类Unix操作系统（Unix、Linux、Mac OS X等）中，都使用Pthreads作为操作系统的线程。</p>
 </blockquote>
@@ -299,7 +299,7 @@ void *start(void *data) {
 </code></pre><p>看代码就会发现他需要 c语言函数，这是比较蛋疼的，更蛋疼的是你需要手动处理线程的各个状态的转换即管理生命周期，比如，这段代码虽然创建了一个线程，但并没有销毁。</p>
 <h6 id="SWIFT"><a href="#SWIFT" class="headerlink" title="SWIFT"></a>SWIFT</h6><p>很遗憾，在我目前的 swift1.2 中无法执行这套方法，原因是这个函数需要传入一个函数指针 CFunctionPointer类型，但是目前 swift 无法将方法转换成此类型。听说 swift 2.0 引入一个新特性 @convention(c), 可以完成 Swift 方法转换成 c 语言指针的。<a href="http://stackoverflow.com/questions/25514176/using-swift-cfunctionpointer-to-pass-a-callback-to-coremidi-api" target="_blank" rel="external">在这里可以看到</a></p>
 <p>那么，Pthreads 方案的多线程我就介绍这么多，毕竟做 iOS 开发几乎不可能用到。但是如果你感兴趣的话，或者说想要自己实现一套多线程方案，从底层开始定制，那么可以去搜一下相关资料。</p>
-<h3 id="NSThread"><a href="#NSThread" class="headerlink" title="NSThread"></a>NSThread</h3><p>这套方案是经过苹果封装后的，并且完全面向对象的。所以你可以直接操控线程对象，非常直观和方便。但是，它的生命周期还是需要我们手动管理，所以这套方案也是偶尔用用，比如 [NSThread currentThread]，它可以获取当前线程类，你就可以知道当前线程的各种属性，用于调试十分方便。下面来看看它的一些用法。</p>
+<h2 id="NSThread"><a href="#NSThread" class="headerlink" title="NSThread"></a>NSThread</h2><p>这套方案是经过苹果封装后的，并且完全面向对象的。所以你可以直接操控线程对象，非常直观和方便。但是，它的生命周期还是需要我们手动管理，所以这套方案也是偶尔用用，比如 [NSThread currentThread]，它可以获取当前线程类，你就可以知道当前线程的各种属性，用于调试十分方便。下面来看看它的一些用法。</p>
 <h5 id="创建并启动"><a href="#创建并启动" class="headerlink" title="创建并启动"></a>创建并启动</h5><h4 id="先创建线程类，再启动"><a href="#先创建线程类，再启动" class="headerlink" title="先创建线程类，再启动"></a>先创建线程类，再启动</h4><h6 id="Objective-C-1"><a href="#Objective-C-1" class="headerlink" title="Objective-C"></a>Objective-C</h6><pre><code>// 创建
 NSThread *thread = [[NSThread alloc] initWithTarget:self selector:@selector(run:) object:nil];
 // 启动
@@ -336,7 +336,7 @@ thread.start()
 + (void)sleepUntilDate:(NSDate *)date;
 </code></pre><h6 id="Swift-3"><a href="#Swift-3" class="headerlink" title="Swift"></a>Swift</h6><p>Swift的方法名字和OC的方法名都一样，我就不浪费空间列举出来了。</p>
 <p>其实，NSThread 用起来也挺简单的，因为它就那几种方法。同时，我们也只有在一些非常简单的场景才会用 NSThread, 毕竟它还不够智能，不能优雅地处理多线程中的其他高级概念。所以接下来要说的内容才是重点。</p>
-<h3 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h3><p>Grand Central Dispatch，听名字就霸气。它是苹果为多核的并行运算提出的解决方案，所以会自动合理地利用更多的CPU内核（比如双核、四核），最重要的是它会自动管理线程的生命周期（创建线程、调度任务、销毁线程），完全不需要我们管理，我们只需要告诉干什么就行。同时它使用的也是 c语言，不过由于使用了 Block（Swift里叫做闭包），使得使用起来更加方便，而且灵活。所以基本上大家都使用 GCD 这套方案，老少咸宜，实在是居家旅行、杀人灭口，必备良药。不好意思，有点中二，咱们继续。</p>
+<h2 id="GCD"><a href="#GCD" class="headerlink" title="GCD"></a>GCD</h2><p>Grand Central Dispatch，听名字就霸气。它是苹果为多核的并行运算提出的解决方案，所以会自动合理地利用更多的CPU内核（比如双核、四核），最重要的是它会自动管理线程的生命周期（创建线程、调度任务、销毁线程），完全不需要我们管理，我们只需要告诉干什么就行。同时它使用的也是 c语言，不过由于使用了 Block（Swift里叫做闭包），使得使用起来更加方便，而且灵活。所以基本上大家都使用 GCD 这套方案，老少咸宜，实在是居家旅行、杀人灭口，必备良药。不好意思，有点中二，咱们继续。</p>
 <h4 id="任务和队列"><a href="#任务和队列" class="headerlink" title="任务和队列"></a>任务和队列</h4><p>在 GCD 中，加入了两个非常重要的概念： 任务 和 队列。</p>
 <blockquote>
 <ul>
@@ -373,7 +373,7 @@ thread.start()
 <h4 id="创建队列"><a href="#创建队列" class="headerlink" title="创建队列"></a>创建队列</h4><p>主队列：这是一个特殊的 串行队列。什么是主队列，大家都知道吧，它用于刷新 UI，任何需要刷新 UI 的工作都要在主队列执行，所以一般耗时的任务都要放到别的线程执行。</p>
 <h6 id="Objective-C-5"><a href="#Objective-C-5" class="headerlink" title="Objective-C"></a>Objective-C</h6><pre><code>dispatch_queue_t queue = ispatch_get_main_queue();
 </code></pre><h6 id="Swift-4"><a href="#Swift-4" class="headerlink" title="Swift"></a>Swift</h6><pre><code>let queue = ispatch_get_main_queue()
-</code></pre><p>自己创建的队列：凡是自己创建的队列都是 串行队列。其中第一个参数是标识符，用于 DEBUG 的时候标识唯一的队列，可以为空。大家可以看xcode的文档查看参数意义。<br>更新：自己可以创建 串行队列, 也可以创建 并行队列。看下面的代码（代码已更新），它有两个参数，第一个上面已经说了，第二个才是最重要的。<br>第二个参数用来表示创建的队列是串行的还是并行的，传入 DISPATCH_QUEUE_SERIAL 或 NULL 表示创建串行队列。传入 DISPATCH_QUEUE_CONCURRENT 表示创建并行队列。</p>
+</code></pre><p>自己可以创建 串行队列, 也可以创建 并行队列。看下面的代码（代码已更新），它有两个参数，第一个上面已经说了，第二个才是最重要的。<br>第二个参数用来表示创建的队列是串行的还是并行的，传入 DISPATCH_QUEUE_SERIAL 或 NULL 表示创建串行队列。传入 DISPATCH_QUEUE_CONCURRENT 表示创建并行队列。</p>
 <h6 id="Objective-C-6"><a href="#Objective-C-6" class="headerlink" title="Objective-C"></a>Objective-C</h6><pre><code>dispatch_queue_t queue = dispatch_queue_create(&quot;tk.bourne.testQueue&quot;, NULL);
 </code></pre><h6 id="Swift-5"><a href="#Swift-5" class="headerlink" title="Swift"></a>Swift</h6><pre><code>let queue = dispatch_queue_create(&quot;tk.bourne.testQueue&quot;, nil);
 </code></pre><p>全局并行队列：这应该是唯一一个并行队列，只要是并行任务一般都加入到这个队列。</p>
@@ -498,7 +498,7 @@ NSLog(&quot;完成 - %@&quot;, NSThread.currentThread())
 <pre><code>func dispatch_barrier_sync(_ queue: dispatch_queue_t, _ block: dispatch_block_t):
 </code></pre><p>这个方法的使用和上一个一样，传入 自定义的并发队列（DISPATCH_QUEUE_CONCURRENT），它和上一个方法一样的阻塞 queue，不同的是 这个方法还会 阻塞当前线程。</p>
 <p>如果你传入的是其他的 queue, 那么它就和 dispatch_sync 一样了。</p>
-<h3 id="NSOperation和NSOperationQueue"><a href="#NSOperation和NSOperationQueue" class="headerlink" title="NSOperation和NSOperationQueue"></a>NSOperation和NSOperationQueue</h3><p>NSOperation 是苹果公司对 GCD 的封装，完全面向对象，所以使用起来更好理解。 大家可以看到 NSOperation 和 NSOperationQueue 分别对应 GCD 的 任务 和 队列 。操作步骤也很好理解：</p>
+<h2 id="NSOperation和NSOperationQueue"><a href="#NSOperation和NSOperationQueue" class="headerlink" title="NSOperation和NSOperationQueue"></a>NSOperation和NSOperationQueue</h2><p>NSOperation 是苹果公司对 GCD 的封装，完全面向对象，所以使用起来更好理解。 大家可以看到 NSOperation 和 NSOperationQueue 分别对应 GCD 的 任务 和 队列 。操作步骤也很好理解：</p>
 <p>将要执行的任务封装到一个 NSOperation 对象中。<br>将此任务添加到一个 NSOperationQueue 对象中。<br>然后系统就会自动在执行任务。至于同步还是异步、串行还是并行请继续往下看：</p>
 <p>添加任务</p>
 <p>值得说明的是，NSOperation 只是一个抽象类，所以不能封装任务。但它有 2 个子类用于封装任务。分别是：NSInvocationOperation 和 NSBlockOperation 。创建一个 Operation 后，需要调用 start 方法来启动任务，它会 默认在当前队列同步执行。当然你也可以在中途取消一个任务，只需要调用其 cancel 方法即可。</p>
@@ -508,8 +508,7 @@ NSLog(&quot;完成 - %@&quot;, NSThread.currentThread())
  //2.开始执行
 [operation start];
 </code></pre><h6 id="Swift-10"><a href="#Swift-10" class="headerlink" title="Swift"></a>Swift</h6><p>在 Swift 构建的和谐社会里，是容不下 NSInvocationOperation 这种不是类型安全的败类的。苹果如是说。这里有相关解释</p>
-<pre><code>NSBlockOperation
-</code></pre><h6 id="Objective-C-12"><a href="#Objective-C-12" class="headerlink" title="Objective-C"></a>Objective-C</h6><pre><code> //1.创建NSBlockOperation对象
+<h5 id="NSBlockOperation"><a href="#NSBlockOperation" class="headerlink" title="NSBlockOperation"></a>NSBlockOperation</h5><h6 id="Objective-C-12"><a href="#Objective-C-12" class="headerlink" title="Objective-C"></a>Objective-C</h6><pre><code> //1.创建NSBlockOperation对象
  NSBlockOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
  NSLog(@&quot;%@&quot;, [NSThread currentThread]);
  }];
@@ -552,9 +551,8 @@ operation.start()
 2015-07-28 17:50:16.585 test[17527:4095662] 第0次 -{number = 2, name = (null)}
 2015-07-28 17:50:16.586 test[17527:4095666] 第3次 -{number = 4, name = (null)}
 2015-07-28 17:50:16.586 test[17527:4095467] 第4次 -{number = 1, name = main}
-</code></pre><p>####### NOTE：addExecutionBlock 方法必须在 start() 方法之前执行，否则就会报错：</p>
-<p>‘<em>*</em> -[NSBlockOperation addExecutionBlock:]: blocks cannot be added after the operation has started executing or finished’</p>
-<p>NOTE：大家可能发现了一个问题，为什么我在 Swift 里打印输出使用 NSLog() 而不是 println() 呢？原因是使用 print() / println() 输出的话，它会简单地使用 流（stream） 的概念，学过 C++ 的都知道。它会把需要输出的每个字符一个一个的输出到控制台。普通使用并没有问题，可是当多线程同步输出的时候问题就来了，由于很多 println() 同时打印，就会导致控制台上的字符混乱的堆在一起，而NSLog() 就没有这个问题。到底是什么样子的呢？你可以把上面 NSLog() 改为 println() ，然后一试便知。 更多 NSLog() 与 println() 的区别看这里</p>
+</code></pre><h6 id="NOTE：addExecutionBlock-方法必须在-start-方法之前执行，否则就会报错："><a href="#NOTE：addExecutionBlock-方法必须在-start-方法之前执行，否则就会报错：" class="headerlink" title="NOTE：addExecutionBlock 方法必须在 start() 方法之前执行，否则就会报错："></a>NOTE：addExecutionBlock 方法必须在 start() 方法之前执行，否则就会报错：</h6><p><code>*** -[NSBlockOperation addExecutionBlock:]: blocks cannot be added after the operation has started executing or finished</code></p>
+<p>NOTE：大家可能发现了一个问题，为什么我在 Swift 里打印输出使用 NSLog() 而不是 println() 呢？原因是使用 print() / println() 输出的话，它会简单地使用 流（stream） 的概念，学过 C++ 的都知道。它会把需要输出的每个字符一个一个的输出到控制台。普通使用并没有问题，可是当多线程同步输出的时候问题就来了，由于很多 println() 同时打印，就会导致控制台上的字符混乱的堆在一起，而NSLog() 就没有这个问题。到底是什么样子的呢？你可以把上面 NSLog() 改为 println() ，然后一试便知。 更多 NSLog() 与 println() 的区别看<a href="http://stackoverflow.com/questions/25951195/swift-print-vs-println-vs-nslog/" target="_blank" rel="external">这里</a></p>
 <p>自定义Operation<br>除了上面的两种 Operation 以外，我们还可以自定义 Operation。自定义 Operation 需要继承 NSOperation 类，并实现其 main() 方法，因为在调用 start() 方法的时候，内部会调用 main() 方法完成相关逻辑。所以如果以上的两个类无法满足你的欲望的时候，你就需要自定义了。你想要实现什么功能都可以写在里面。除此之外，你还需要实现 cancel() 在内的各种方法。所以这个功能提供给高级玩家，我在这里就不说了，等我需要用到时在研究它，到时候可能会再做更新。</p>
 <h5 id="创建队列-1"><a href="#创建队列-1" class="headerlink" title="创建队列"></a>创建队列</h5><p>看过上面的内容就知道，我们可以调用一个 NSOperation 对象的 start() 方法来启动这个任务，但是这样做他们默认是 同步执行 的。就算是 addExecutionBlock 方法，也会在 当前线程和其他线程 中执行，也就是说还是会占用当前线程。这是就要用到队列 NSOperationQueue 了。而且，按类型来说的话一共有两种类型：主队列、其他队列。只要添加到队列，会自动调用任务的 start() 方法</p>
 <h5 id="主队列"><a href="#主队列" class="headerlink" title="主队列"></a>主队列</h5><p>细心的同学就会发现，每套多线程方案都会有一个主线程（当然啦，说的是iOS中，像 pthread 这种多系统的方案并没有，因为 UI线程 理论需要每种操作系统自己定制）。这是一个特殊的线程，必须串行。所以添加到主队列的任务都会一个接一个地排着队在主线程处理。</p>
@@ -807,7 +805,7 @@ private override init() {}
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 Xiao JingYuan
+    		&copy; 2016 Xiao Jingyuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

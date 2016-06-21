@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>肖</title>
+  <title>肖的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="oc,swift,html5,">
 <meta property="og:type" content="website">
-<meta property="og:title" content="肖">
+<meta property="og:title" content="肖的博客">
 <meta property="og:url" content="http://xiaodev.cn/index.html">
-<meta property="og:site_name" content="肖">
+<meta property="og:site_name" content="肖的博客">
 <meta property="og:description" content="oc,swift,html5,">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="肖">
+<meta name="twitter:title" content="肖的博客">
 <meta name="twitter:description" content="oc,swift,html5,">
   
-    <link rel="alternative" href="/atom.xml" title="肖" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="肖的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="http://xjydev.github.io/img/favicon.ico">
@@ -37,7 +37,7 @@
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">Xiao JingYuan</a></h1>
+		  <h1 class="header-author"><a href="/">Xiao Jingyuan</a></h1>
 		</hgroup>
 
 		
@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -156,7 +156,7 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">Xiao JingYuan</h1>
+  		<h1 class="header-author js-mobile-header hide">Xiao Jingyuan</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -166,7 +166,7 @@
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">Xiao JingYuan</h1>
+			  <h1 class="header-author">Xiao Jingyuan</h1>
 			</hgroup>
 			
 			<p class="header-subtitle">分享让世界变得更美好</p>
@@ -231,73 +231,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Thrift是一个跨语言的服务部署框架，最初由Facebook于2007年开发，2008年进入Apache开源项目。Thrift通过一个中间语言(IDL, 接口定义语言)来定义RPC的接口和数据类型，然后通过一个编译器生成不同语言的代码（目前支持C++,Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk和OCaml）,并由生成的代码负责RPC协议层和传输层的实现。</p>
-<p><a href="http://wiki.apache.org/thrift/ThriftUsageObjectiveC/" target="_blank" rel="external">Thrift官方网站英文</a></p>
+<p><a href="http://wiki.apache.org/thrift/ThriftUsageObjectiveC/">Thrift官方网站英文</a></p>
 <p>Thrift支持Mac OS X10.5及以上版本，iOS4及以上版本。iOS5和Mac OS10.7及以上OC开始支持ARC，自动管理Retain/release.</p>
 <p>Thrift0.8.0不支持ARC，如果你的应用使用了ARC模式，你可以在Xcode的Targets-》BuildPhases-》COmpilSource把Thrift相关文件设置-fno-objc-arc。Thrift0.9.0开始支出ARC和非ARC，他自动适应程序的ARC和非ARC模式，不需要手动转换。</p>
-<h3 id="安装Thrift"><a href="#安装Thrift" class="headerlink" title="安装Thrift"></a>安装Thrift</h3><pre><code>$ brew --version
-</code></pre><p> 可以查看brew版本信息，如果没有那么你应该先安装一个brew了。<br> 如果想升级一下：</p>
-<pre><code>sudo brew update
-</code></pre><p>  然后安装Thrift</p>
-<pre><code>sudo brew install thrift
-</code></pre><h3 id="项目中引入Thrift库"><a href="#项目中引入Thrift库" class="headerlink" title="项目中引入Thrift库"></a>项目中引入Thrift库</h3><p>在此我使用pod引入Thrift库，</p>
-<pre><code>pod &apos;thrift&apos;, &apos;~&gt; 0.9.3&apos;
-</code></pre><p> 很方便快捷，如果不会，请自行补Pod方面知识。</p>
-<h3 id="Thrift文件"><a href="#Thrift文件" class="headerlink" title="Thrift文件"></a>Thrift文件</h3><p>Thrift实际上是实现了C/S模式，通过代码生成工具将接口定义文件生成服务器端和客户端代码（可以为不同语言），从而实现服务端和客户端跨语言的支持。用户在Thirft描述文件中声明自己的服务，这些服务经过编译后会生成相应语言的代码文件，然后用户实现服务（客户端调用服务，服务器端提服务）便可以了。其中protocol（协议层, 定义数据传输格式，可以为二进制或者XML等）和transport（传输层，定义数据传输方式，可以为TCP/IP传输，内存共享或者文件共享等）被用作运行时库。</p>
-<p>我们这里是服务器工程师提供，一定要注意文件中格式问题，面向OC的要特别注意，结构体中变量名<code>不能首字母大写</code>不然取不到值，最好thrift只生产一个文件，如果接口特别多，特别需要生产多个文件，函数名称，变量名称，都要加个前缀。因为OC是不允许同名属性名，和同名方法名的。</p>
-<p>生成相应的oc文件，首先cd到thrift的当前文件夹内。</p>
-<pre><code>thrift --gen coca ****.thrift 
-</code></pre><p>会在gen-cocoa文件夹内生成两个相对应的.h.m文件。</p>
-<p>以后文件如果有改动，也安照以上步骤进行，会自动生成两个文件覆盖以前的两个文件。所以覆盖前一定要询问服务器工程师，够修改了什么地方，自己也要备份好以前的thrift文件以方便以后对照找bug。以防止变动不足以引起编译运行时报错，但使用时就是crash了。</p>
-<h3 id="项目内编写代码"><a href="#项目内编写代码" class="headerlink" title="项目内编写代码"></a>项目内编写代码</h3><p>#####（1）支持的传输格式</p>
-<p>TBinaryProtocol – 二进制格式.</p>
-<p>TCompactProtocol – 压缩格式</p>
-<p>TJSONProtocol – JSON格式</p>
-<p>TSimpleJSONProtocol –提供JSON只写协议, 生成的文件很容易通过脚本语言解析。</p>
-<p>TDebugProtocol – 使用易懂的可读的文本格式，以便于debug</p>
-<p>#####（2） 支持的数据传输方式</p>
-<p>TSocket -阻塞式socker</p>
-<p>TFramedTransport – 以frame为单位进行传输，非阻塞式服务中使用。</p>
-<p>TFileTransport – 以文件形式进行传输。</p>
-<p>TMemoryTransport – 将内存用于I/O. java实现时内部实际使用了简单的ByteArrayOutputStream。</p>
-<p>TZlibTransport – 使用zlib进行压缩， 与其他传输方式联合使用。当前无java实现。</p>
-<p>#####（3）支持的服务模型</p>
-<p>TSimpleServer – 简单的单线程服务模型，常用于测试</p>
-<p>TThreadPoolServer – 多线程服务模型，使用标准的阻塞式IO。</p>
-<p>TNonblockingServer – 多线程服务模型，使用非阻塞式IO（需使用TFramedTransport数据传输方式）</p>
-<p>需要注意的是，thrift生成的oc代码，是同步的，所以在请求的时候，需要自己开辟一个线程进行异步数据请求。</p>
-<p>文件中导入</p>
-<pre><code>#import &quot;TBinaryProtocol.h&quot;
-#import &quot;TFramedTransport.h&quot;
-#import &quot;TSocketClient.h&quot;
-#import &quot;TMemoryBuffer.h&quot;
-</code></pre><p> 代码实现</p>
-<pre><code>- (IpadTeamLeaderClient *)setupTeamLeaderClient {
-
-TSocketClient *transport = [[TSocketClient alloc] initWithHostname:ServerName port:ServerPort];
-TFramedTransport *ftransport = [[TFramedTransport alloc] initWithTransport:transport];
-TBinaryProtocol *protocol = [[HHBinaryProtocol alloc] initWithTransport:ftransport];
-return [[IpadTeamLeaderClient alloc] initWithProtocol:protocol];
-
-}  
-</code></pre><p>时也可以采用http传输方式</p>
-<pre><code> #import &lt;THTTPClient.h&gt;
-#import &lt;TBinaryProtocol.h&gt;
-
-- (void) connect {
-NSURL *url = [NSURL URLWithString:@&quot;http://localhost:8082&quot;];
-// url = [NSURL URLWithString:@&quot;https://myapp145454.appspot.com&quot;];
-
-// Talk to a server via HTTP, using a binary protocol
-THTTPClient *transport = [[THTTPClient alloc] initWithURL:url];
-TBinaryProtocol *protocol = [[TBinaryProtocol alloc] 
-                             initWithTransport:transport 
-                             strictRead:YES 
-                             strictWrite:YES];
-
-server = [[TestServiceClient alloc] initWithProtocol:protocol];
-</code></pre><p>数据请求需要异步。官方demo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@interface ThriftTestViewController : UIViewController &#123;</span><br><span class="line">    IBOutlet UILabel *msg;</span><br><span class="line">&#125;</span><br><span class="line">@property (nonatomic, retain) UILabel *msg;</span><br><span class="line">@property (nonatomic, strong) TestServiceClient *server;</span><br><span class="line">@property (nonatomic, strong) NSOperationQueue *asyncQueue;</span><br><span class="line">@property (nonatomic, strong) NSOperationQueue *mainQueue;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">- (void )viewDidLoad &#123;</span><br><span class="line">    asyncQueue = [[NSOperationQueue alloc] init];</span><br><span class="line">    [asyncQueue setMaxConcurrentOperationCount:1]; // serial</span><br><span class="line">    mainQueue = [NSOperationQueue mainQueue];   // for GUI, DB</span><br><span class="line">    </span><br><span class="line">    NSURL *url = [NSURL URLWithString:@&quot;http://localhost:8082&quot;];</span><br><span class="line"></span><br><span class="line">    // Talk to a server via HTTP, using a binary protocol</span><br><span class="line">    THTTPClient *transport = [[THTTPClient alloc] initWithURL:url];</span><br><span class="line">    TBinaryProtocol *protocol = [[TBinaryProtocol alloc] </span><br><span class="line">                                 initWithTransport:transport </span><br><span class="line">                                 strictRead:YES </span><br><span class="line">                                 strictWrite:YES];</span><br><span class="line">    // Use the service defined in profile.thrift</span><br><span class="line">    server = [[TestServiceClient alloc] initWithProtocol:protocol];</span><br><span class="line">    NSLog(@&quot;Client init done %@&quot;, url);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-(void)doCalc &#123;</span><br><span class="line">    __unsafe_unretained ThriftTestViewController *weakSelf = self;</span><br><span class="line">    [asyncQueue addOperationWithBlock:^(void) &#123;</span><br><span class="line">        __unsafe_unretained ThriftTestViewController *weakSelf2 = weakSelf;</span><br><span class="line">        @try &#123;</span><br><span class="line">            weakSelf.msg.text = nil;</span><br><span class="line">            int result = [weakSelf.server calc:24 :32];</span><br><span class="line">            [weakSelf.mainQueue addOperationWithBlock:^(void) &#123;</span><br><span class="line">                weakSelf2.msg.text = [NSString stringWithFormat:@&quot;%d&quot;, result];</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125;</span><br><span class="line">        @catch (TException *e) &#123;</span><br><span class="line">            NSString *errorMsg = e.description;</span><br><span class="line">            NSLog(@&quot;Error %@&quot;, errorMsg);</span><br><span class="line">            [weakSelf.mainQueue addOperationWithBlock:^(void) &#123;</span><br><span class="line">                weakSelf2.msg.text = errorMsg;</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="安装Thrift"><a href="#安装Thrift" class="headerlink" title="安装Thrift"></a>安装Thrift</h3>
       
     </div>
     
@@ -310,6 +247,10 @@ server = [[TestServiceClient alloc] initWithProtocol:protocol];
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/05/29/Thrift-objective-C应用/#more">阅读全文 >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -902,17 +843,415 @@ Server built:   Dec 10 2013 22:09:38
 
 
   
+    <article id="post-Reac-Native" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+    <div class="article-meta">
+      <a href="/2015/11/28/Reac-Native/" class="article-date">
+  	<time datetime="2015-11-28T13:14:39.000Z" itemprop="datePublished">2015-11-28</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/28/Reac-Native/">React Native</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>React Native使你能够在Javascript和React的基础上获得完全一致的开发体验，构建世界一流的原生APP。React Native着力于提高多平台开发的开发效率 —— 仅需学习一次，编写任何平台。(Learn once, write anywhere)。Facebook已经在多项产品中使用了React Native，并且将持续地投入建设React Native。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/28/Reac-Native/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-iOS-调试技巧" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/11/14/iOS-调试技巧/" class="article-date">
+  	<time datetime="2015-11-14T12:40:14.000Z" itemprop="datePublished">2015-11-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/14/iOS-调试技巧/">iOS 调试技巧</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>对于软件开发而言，调试是必须学会的技能，重要性不言而喻。对于调试的技能，基本上是可以迁移的，也就是说你以前在其他平台上掌握的很多调试技巧，很多也是可以用在iOS开发中。不同语言、不同IDE、不同平台的调试，有同性也有个性。今天我们就来学习一下iOS开发中的调试技巧，语言暂用为OC，IDE当然是强大的Xcode。</p>
+<blockquote>
+<ul>
+<li>断点调试</li>
+<li>NSLog调试</li>
+<li>Xcode视图调试
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/11/14/iOS-调试技巧/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-iOS-In-App-Purchase" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/15/iOS-In-App-Purchase/" class="article-date">
+  	<time datetime="2015-10-15T12:35:01.000Z" itemprop="datePublished">2015-10-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/15/iOS-In-App-Purchase/">iOS In-App Purchase</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-苹果iTunes-Connect内购产品信息录入。"><a href="#1-苹果iTunes-Connect内购产品信息录入。" class="headerlink" title="1.苹果iTunes Connect内购产品信息录入。"></a>1.苹果iTunes Connect内购产品信息录入。</h2><h5 id="1）创建app内购买项目（Create-New），选择类型："><a href="#1）创建app内购买项目（Create-New），选择类型：" class="headerlink" title="1）创建app内购买项目（Create New），选择类型："></a>1）创建app内购买项目（Create New），选择类型：</h5><blockquote>
+<p>1.消耗型项目</p>
+<p>对于消耗型 App 内购买项目，用户每次下载时都必须进行购买。一次性服务通常属于消耗型项目，例如钓鱼App 中的鱼饵。</p>
+<p>2.非消耗型项目</p>
+<p>对于非消耗型 App 内购买项目，用户仅需要购买一次。不会过期或随使用而减少的服务通常为非消耗型项目，例如游戏App 的新跑道。</p>
+<p>3.自动续订订阅</p>
+<p>通过自动续订订阅，用户可以购买指定时间期限内的更新和动态内容。除非用户取消选择，否则订阅（例如杂志订阅等）会自动续订。</p>
+<p>4.免费订阅</p>
+<p>通过免费订阅，开发者可以将免费订阅内容放入“报刊杂志”。用户注册免费订阅后，该订阅内容将会出现在与该用户Apple ID 关联的所有设备上。请注意，免费订阅不会过期，并且仅在支持报刊杂志功能的 App 中提供。</p>
+<p>5.非续订订阅</p>
+<p>非续订订阅允许有时限性的营销服务。对于 App 内购买项目中的限时访问内容，就需使用非续订订阅。例如，导航App 中语音导航功能的一周订阅，或者年度订阅已存档的视频或音频的在线目录。</p>
+</blockquote>
+<p>一定要根据自己应用的情况选择正确，不然会被App Store审核团队拒绝。应用内的虚拟币要采用消耗型的，有固定时限的会员选择自动续订订阅。也可以只选择虚拟币充值自己后台购买的情况解决会员问题。</p>
+<h5 id="2）生成共享密钥"><a href="#2）生成共享密钥" class="headerlink" title="2）生成共享密钥"></a>2）生成共享密钥</h5>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/In-App-Purchase/">In-App Purchase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/10/15/iOS-In-App-Purchase/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-多线程GCD-NSThread-NSOperation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/26/多线程GCD-NSThread-NSOperation/" class="article-date">
+  	<time datetime="2015-09-26T13:39:18.000Z" itemprop="datePublished">2015-09-26</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/26/多线程GCD-NSThread-NSOperation/">多线程GCD NSThread NSOperation</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>  在 iOS 中其实目前有 4 套多线程方案，他们分别是：</p>
+<blockquote>
+<ul>
+<li>Pthreads</li>
+<li>NSThread</li>
+<li>GCD</li>
+<li>NSOperation &amp; NSOperationQueue</li>
+</ul>
+</blockquote>
+<p>所以接下来，我会一一讲解这些方案的使用方法和一些案例。在将这些内容的时候，我也会顺带说一些多线程周边产品。比如： 线程同步、 延时执行、 单例模式 等等。</p>
+<h2 id="Pthreads"><a href="#Pthreads" class="headerlink" title="Pthreads"></a>Pthreads</h2><p>其实这个方案不用说的，只是拿来充个数，为了让大家了解一下就好了。百度百科里是这么说的：</p>
+<blockquote>
+<p>POSIX线程（POSIX threads），简称Pthreads，是线程的POSIX标准。该标准定义了创建和操纵线程的一整套API。在类Unix操作系统（Unix、Linux、Mac OS X等）中，都使用Pthreads作为操作系统的线程。</p>
+</blockquote>
+<p>简单地说，这是一套在很多操作系统上都通用的多线程API，所以移植性很强（然并卵），当然在 iOS 中也是可以的。不过这是基于 c语言 的框架，使用起来这酸爽！感受一下：</p>
+<h6 id="Objective-C"><a href="#Objective-C" class="headerlink" title="Objective-C"></a>Objective-C</h6>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/26/多线程GCD-NSThread-NSOperation/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Autolayout" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/09/20/Autolayout/" class="article-date">
+  	<time datetime="2015-09-20T02:52:12.000Z" itemprop="datePublished">2015-09-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/20/Autolayout/">Autolayout</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>iOS8和iPhone6发布已经过去蛮久了,广大的果粉终于迎来了大屏iPhone,再也不用纠结为大屏买三星舍苹果了…但是对于iOS开发人员来说,迎来了和Android开发开发一样的问题—&gt;各种屏幕的适配(是不是可以要求加工资的节奏).对于适配,网传各种有关Size Class的论点,前段时间太忙,一直没去研究,套用+总的话,苹果在适配方面提供的方法做的比安卓好太多了.自己实测之后,确实很方便0.0(不过,还是想说,适配的核心始终是AutoLayout)<br><img src="http://cc.cocimg.com/api/uploads/20141217/1418795367881579.png" alt="image"></p>
+<h4 id="概念初探"><a href="#概念初探" class="headerlink" title="概念初探"></a>概念初探</h4>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/09/20/Autolayout/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-github-hexo搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/08/12/github-hexo搭建博客/" class="article-date">
+  	<time datetime="2015-08-12T12:40:20.000Z" itemprop="datePublished">2015-08-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/12/github-hexo搭建博客/">github hexo搭建博客</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如果你看到这篇文章说明我已经搭建成功。以前使用过的<a href="http://blog.csdn.net/xiao562994291">CSDN</a>，<a href="http://blog.sina.com.cn/xiaojingyuanblog">新浪博客</a>。</p>
+<p>搭建博客需要：</p>
+<blockquote>
+<ol>
+<li><p>安装<a href="https://nodejs.org/">NOde</a>,下载安装即可。作用：用来生成静态页面的</p>
+</li>
+<li><p>安装Git（xcode自带Git）作用：把本地的hexo内容提交到github上去.</p>
+</li>
+<li>申请github。</li>
+<li>安装完成后下载MarkDown编译器。<a href="http://25.io/mou/store/">Mou免费的</a></li>
+</ol>
+</blockquote>
+<h3 id="1-安装前准备。"><a href="#1-安装前准备。" class="headerlink" title="1. 安装前准备。"></a>1. 安装前准备。</h3>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/08/12/github-hexo搭建博客/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
   
 </div>
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 Xiao JingYuan
+    		&copy; 2016 Xiao Jingyuan
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
