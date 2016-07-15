@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="肖的技术博客">
 <meta property="og:description" content="OC是运行时语言，只有在程序运行时，才会去确定对象的类型，并调用类与对象相应的方法。利用runtime机制让我们可以在程序运行时动态修改类、对象中的所有属性、方法，就算是私有方法以及私有属性都是可以动态修改的。本文旨在对runtime的部分特性小试牛刀，更多更全的方法可以参考系统API文件，
 新建两个类ClassOne和ClassTwo">
-<meta property="og:updated_time" content="2016-04-15T03:14:24.000Z">
+<meta property="og:updated_time" content="2016-07-14T07:27:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Runtime">
 <meta name="twitter:description" content="OC是运行时语言，只有在程序运行时，才会去确定对象的类型，并调用类与对象相应的方法。利用runtime机制让我们可以在程序运行时动态修改类、对象中的所有属性、方法，就算是私有方法以及私有属性都是可以动态修改的。本文旨在对runtime的部分特性小试牛刀，更多更全的方法可以参考系统API文件，
@@ -367,7 +367,7 @@ const char *ivarName = ivar_getName(ivar);
 const char *type = ivar_getTypeEncoding(ivar);
 NSLog(@&quot;ivarName=%@,type=%@&quot;,[NSString stringWithUTF8String:ivarName],[NSString stringWithUTF8String:type]);
 }
-</code></pre>
+</code></pre><h3 id="代码demo"><a href="#代码demo" class="headerlink" title="代码demo"></a><a href="https://github.com/xjydev/ObjectiveDemo" target="_blank" rel="external">代码demo</a></h3>
       
     </div>
     

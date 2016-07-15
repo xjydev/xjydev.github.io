@@ -24,7 +24,7 @@
 3.键值观察key value observing，KVO
 
 因此，那为什么我们需要这些模式以及什么时候用它以及什么时候不用它。">
-<meta property="og:updated_time" content="2016-04-14T13:07:18.000Z">
+<meta property="og:updated_time" content="2016-07-14T07:26:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS中delegate,Notification,KVO的选择">
 <meta name="twitter:description" content="在开发ios应用的时候，我们会经常遇到一个常见的问题：在不过分耦合的前提下，controllers间怎么进行通信。在IOS应用不断的出现三种模式来实现这种通信：
@@ -304,7 +304,7 @@
 <p>我觉得使用命名规则好的协议和协议方法定义对于清晰的理解controllers间的通信是很容易的。努力的定义这些协议方法将增强代码的可读性，以及更 好的跟踪你的app。代理协议发生改变以及实现都可通过编译器检查出来，如果没有将会在开发的过程中至少会出现crash，而不仅仅是让一些事情异常工 作。甚至在同一事件通知多控制器的场景中，只要你的应用在controller层次有着良好的结构，消息将在该层次上传递。该层次能够向后传递直至让所有 需要知道事件的controllers都知道。</p>
 <p>当然会有delegation模式不适合的例外情况出现，而且notification可能更加有效。例如：应用中所有的controller需要知道一个事件。然而这些类型的场景很少出现。另外一个例子是当你建立了一个架构而且需要通知该事件给正在运行中应用。</p>
 <p>根据经验，如果是属性层的时间，不管是在不需要编程的对象还是在紧紧绑定一个view对象的model对象，我只使用观察。对于其他的事件，我都会使用 delegate模式。如果因为某种原因我不能使用delegate，首先我将估计我的app架构是否出现了严重的错误。如果没有错误，然后才使用 notification。</p>
-
+<h3 id="代码demo"><a href="#代码demo" class="headerlink" title="代码demo"></a><a href="https://github.com/xjydev/ObjectiveDemo" target="_blank" rel="external">代码demo</a></h3>
       
     </div>
     

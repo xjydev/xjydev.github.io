@@ -4,17 +4,30 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>肖的技术博客</title>
+  <title>iOS日志分析 | 肖的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="oc,swift,html5,">
-<meta property="og:type" content="website">
-<meta property="og:title" content="肖的技术博客">
-<meta property="og:url" content="http://xiaodev.cn/index.html">
+  <meta name="description" content="在研发的时候，通过NSLog，断点等，都能够很好的发现和定位bug。但是如果已经提交到AppStore，或者在安装到设备上后运行崩溃，而且无法再次重现时，只能通过日志来发现和定位bug。现在说的就是怎么通过日志来定位bug。
+1.日志的产生两种主要情况会产生崩溃日志:
+1.应用违反操作系统规则。
+2.应用中有Bug。
+违反iOS规则包括在启动、恢复、挂起、退出时watchdog超时、用户强制退出和">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS日志分析">
+<meta property="og:url" content="http://xiaodev.cn/2016/07/15/iOS日志分析/index.html">
 <meta property="og:site_name" content="肖的技术博客">
-<meta property="og:description" content="oc,swift,html5,">
+<meta property="og:description" content="在研发的时候，通过NSLog，断点等，都能够很好的发现和定位bug。但是如果已经提交到AppStore，或者在安装到设备上后运行崩溃，而且无法再次重现时，只能通过日志来发现和定位bug。现在说的就是怎么通过日志来定位bug。
+1.日志的产生两种主要情况会产生崩溃日志:
+1.应用违反操作系统规则。
+2.应用中有Bug。
+违反iOS规则包括在启动、恢复、挂起、退出时watchdog超时、用户强制退出和">
+<meta property="og:updated_time" content="2016-07-15T09:44:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="肖的技术博客">
-<meta name="twitter:description" content="oc,swift,html5,">
+<meta name="twitter:title" content="iOS日志分析">
+<meta name="twitter:description" content="在研发的时候，通过NSLog，断点等，都能够很好的发现和定位bug。但是如果已经提交到AppStore，或者在安装到设备上后运行崩溃，而且无法再次重现时，只能通过日志来发现和定位bug。现在说的就是怎么通过日志来定位bug。
+1.日志的产生两种主要情况会产生崩溃日志:
+1.应用违反操作系统规则。
+2.应用中有Bug。
+违反iOS规则包括在启动、恢复、挂起、退出时watchdog超时、用户强制退出和">
   
     <link rel="alternative" href="/atom.xml" title="肖的技术博客" type="application/atom+xml">
   
@@ -202,9 +215,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-iOS日志分析" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iOS日志分析" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/07/15/iOS日志分析/" class="article-date">
@@ -220,12 +231,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/15/iOS日志分析/">iOS日志分析</a>
+    <h1 class="article-title" itemprop="name">
+      iOS日志分析
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -285,20 +307,19 @@
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/29/Thrift-objective-C应用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Thrift objective C应用</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -307,1052 +328,28 @@
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="iOS日志分析" data-title="iOS日志分析" data-url="http://xiaodev.cn/2016/07/15/iOS日志分析/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
-  
-    <article id="post-Thrift-objective-C应用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/29/Thrift-objective-C应用/" class="article-date">
-  	<time datetime="2016-05-29T01:08:06.000Z" itemprop="datePublished">2016-05-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/29/Thrift-objective-C应用/">Thrift objective C应用</a>
-    </h1>
-  
 
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Thrift是一个跨语言的服务部署框架，最初由Facebook于2007年开发，2008年进入Apache开源项目。Thrift通过一个中间语言(IDL, 接口定义语言)来定义RPC的接口和数据类型，然后通过一个编译器生成不同语言的代码（目前支持C++,Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk和OCaml）,并由生成的代码负责RPC协议层和传输层的实现。</p>
-<p><a href="http://wiki.apache.org/thrift/ThriftUsageObjectiveC/">Thrift官方网站英文</a></p>
-<p>Thrift支持Mac OS X10.5及以上版本，iOS4及以上版本。iOS5和Mac OS10.7及以上OC开始支持ARC，自动管理Retain/release.</p>
-<p>Thrift0.8.0不支持ARC，如果你的应用使用了ARC模式，你可以在Xcode的Targets-》BuildPhases-》COmpilSource把Thrift相关文件设置-fno-objc-arc。Thrift0.9.0开始支出ARC和非ARC，他自动适应程序的ARC和非ARC模式，不需要手动转换。</p>
-<h3 id="安装Thrift"><a href="#安装Thrift" class="headerlink" title="安装Thrift"></a>安装Thrift</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Thrift/">Thrift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/29/Thrift-objective-C应用/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-ReactiveCocoa" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/02/ReactiveCocoa/" class="article-date">
-  	<time datetime="2016-05-02T03:39:15.000Z" itemprop="datePublished">2016-05-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/02/ReactiveCocoa/">ReactiveCocoa 响应式编程</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a href="https://github.com/ReactiveCocoa/ReactiveCocoa">ReactiveCocoa</a>是Github开源的一款cocoa FRP 框架。</p>
-<h2 id="函数式编程"><a href="#函数式编程" class="headerlink" title="函数式编程"></a>函数式编程</h2><p>函数式编程是种编程范式，它将电脑运算视为函数的计算。函数编程语言最重要的基础是 λ 演算（lambda calculus）。而且λ演算的函数可以接受函数当作输入（参数）和输出（返回值）。和指令式编程相比，函数式编程强调函数的计算比指令的执行重要。和过程化编程相比，函数式编程里，函数的计算可随时调用。</p>
-<h2 id="响应式编程"><a href="#响应式编程" class="headerlink" title="响应式编程"></a>响应式编程</h2><p>响应式编程是一种面向数据流和变化传播的编程范式。这意味着可以在编程语言中很方便地表达静态或动态的数据流，而相关的计算模型会自动将变化的值通过数据流进行传播。</p>
-<h2 id="RAC中的类和方法"><a href="#RAC中的类和方法" class="headerlink" title="RAC中的类和方法"></a>RAC中的类和方法</h2><h4 id="RACSignal和RACStream"><a href="#RACSignal和RACStream" class="headerlink" title="RACSignal和RACStream"></a>RACSignal和RACStream</h4><p>RAC的核心是Signal，对应的类为RACSignal，它其实是一个事件源，Signal会给它的订阅者（subscribers）发送一连串的事件。有三种事件：next，error和completed。Signal可以在error或completed事件发出前发出任意多的next事件。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ReactiveCocoa/">ReactiveCocoa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/05/02/ReactiveCocoa/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CocoaPods" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/30/CocoaPods/" class="article-date">
-  	<time datetime="2016-04-30T13:51:07.000Z" itemprop="datePublished">2016-04-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/30/CocoaPods/">CocoaPods</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一-作用"><a href="#一-作用" class="headerlink" title="一.作用"></a>一.作用</h3><p>CocoaPods 是开发 OS X 和 iOS 应用程序的一个第三方库的依赖管理工具。利用 CocoaPods，可以定义自己的依赖关系 (称作 pods)，并且随着时间的变化，以及在整个开发环境中对第三方库的版本管理非常方便。</p>
-<p>CocoaPods可以帮助开发者</p>
-<ul>
-<li>下载开源库的源代码并引入工程</li>
-<li>向工程中添加开源库使用到的framework</li>
-<li>解决开源库和开源库以及开源库和工程之间的依赖关系、检查重复添加的framework等问题</li>
-<li>可以方便更新开源库，及其相应的其他更新。</li>
-</ul>
-<p>可以让开发者自动化的、集中的、直观的管理第三方开源库。为项目开发节省时间，减少繁杂。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CocoaPods/">CocoaPods</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/30/CocoaPods/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS-响应链" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/25/iOS-响应链/" class="article-date">
-  	<time datetime="2016-04-25T10:39:24.000Z" itemprop="datePublished">2016-04-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/25/iOS-响应链/">iOS 响应链</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-Gesture-Recognizers"><a href="#1-Gesture-Recognizers" class="headerlink" title="1.Gesture Recognizers"></a>1.Gesture Recognizers</h3><p>Gesture Recognizers是在iOS3.2引入的，可以用来识别手势、简化定制视图事件处理的对象。Gesture Recognizers的基类为UIGestureRecognizer，这一个抽象基类，定义了实现底层手势识别行为的编程接口。在UIKit框架中提供了6个具体的手势识别类，用来识别常见的手势。这6个手势识别器类为:</p>
-<blockquote>
-<ul>
-<li>UITapGestureRecognizer:用来识别点击手势,包括单击，双击，甚至三击等。</li>
-<li>UIPinchGestureRecognizer:用来识别手指捏合手势。</li>
-<li>UIPanGestureRecognizer:用来识别拖动手势。</li>
-<li>UISwipeGestureRecognizer:用来识别Swipe手势。</li>
-<li>UIRotationGestureRecognizer:用来识别旋转手势。</li>
-<li>UILongPressGestureRecognizer:用来识别长按手势
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/25/iOS-响应链/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Mac-下PHP环境的搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/10/Mac-下PHP环境的搭建/" class="article-date">
-  	<time datetime="2016-04-10T13:53:52.000Z" itemprop="datePublished">2016-04-10</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/10/Mac-下PHP环境的搭建/">Mac 下PHP环境的搭建</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-启动服务器"><a href="#1-启动服务器" class="headerlink" title="1.启动服务器"></a>1.启动服务器</h3><pre><code>MacBook-Air:~ wgyp$ sudo apachectl start
-Password:
-MacBook-Air:~ wgyp$ sudo apachectl -v
-Server version: Apache/2.2.26 (Unix)
-Server built:   Dec 10 2013 22:09:38
-</code></pre><p><em>*注意：Apache启动后,以后Mac开机Apache会自动启动。输入命令行</em><br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/">PHP</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/10/Mac-下PHP环境的搭建/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-CALayer" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/03/20/CALayer/" class="article-date">
-  	<time datetime="2016-03-20T13:41:04.000Z" itemprop="datePublished">2016-03-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/20/CALayer/">CALayer的属性</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>以下CALayer的属性指定了图层的几何。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/03/20/CALayer/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-git-常用命令" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/01/17/git-常用命令/" class="article-date">
-  	<time datetime="2016-01-17T12:33:36.000Z" itemprop="datePublished">2016-01-17</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/17/git-常用命令/">Git 常用命令</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h3><pre><code>git clone &lt;url&gt;
-</code></pre><p>   克隆远程版本库，cd到那个文件夹下，就克隆到那个文件夹。</p>
-<pre><code>git init
-</code></pre><p>   初始化本地版本库</p>
-<h3 id="修改和提交"><a href="#修改和提交" class="headerlink" title="修改和提交"></a>修改和提交</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/">Git</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/01/17/git-常用命令/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iPhone6Plus-屏幕无反应" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/25/iPhone6Plus-屏幕无反应/" class="article-date">
-  	<time datetime="2015-12-25T02:26:32.000Z" itemprop="datePublished">2015-12-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/25/iPhone6Plus-屏幕无反应/">iPhone6S Plus 屏幕无反应</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="遇到同事手机屏幕点击无反应，上网搜索一下，他们提供的策略是："><a href="#遇到同事手机屏幕点击无反应，上网搜索一下，他们提供的策略是：" class="headerlink" title="遇到同事手机屏幕点击无反应，上网搜索一下，他们提供的策略是："></a>遇到同事手机屏幕点击无反应，上网搜索一下，他们提供的策略是：</h4><blockquote>
-<p>1、锁屏状态下长按home键启用语音控制，然后说《 播放音乐 》，播放歌曲触摸功能恢复。</p>
-<p>2、等待手机没电自动关机，再充电开机便可恢复触屏操作。</p>
-<p>3、iPhone 5s连接iTunes，升级最新版本iOS系统后触屏功能将恢复。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/other/">other</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/25/iPhone6Plus-屏幕无反应/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Runtim" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/21/Runtim/" class="article-date">
-  	<time datetime="2015-12-21T13:45:45.000Z" itemprop="datePublished">2015-12-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/21/Runtim/">Runtime</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>OC是运行时语言，只有在程序运行时，才会去确定对象的类型，并调用类与对象相应的方法。利用runtime机制让我们可以在程序运行时动态修改类、对象中的所有属性、方法，就算是私有方法以及私有属性都是可以动态修改的。本文旨在对runtime的部分特性小试牛刀，更多更全的方法可以参考系统API文件，</p>
-<p>新建两个类ClassOne和ClassTwo<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Runtime/">Runtime</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/21/Runtim/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS中delegate-Notification-KVO的选择" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/14/iOS中delegate-Notification-KVO的选择/" class="article-date">
-  	<time datetime="2015-12-14T13:58:43.000Z" itemprop="datePublished">2015-12-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/14/iOS中delegate-Notification-KVO的选择/">iOS中delegate,Notification,KVO的选择</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在开发ios应用的时候，我们会经常遇到一个常见的问题：在不过分耦合的前提下，controllers间怎么进行通信。在IOS应用不断的出现三种模式来实现这种通信：</p>
-<blockquote>
-<p>1.委托delegation；</p>
-<p>2.通知中心Notification Center；</p>
-<p>3.键值观察key value observing，KVO</p>
-</blockquote>
-<p>因此，那为什么我们需要这些模式以及什么时候用它以及什么时候不用它。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/14/iOS中delegate-Notification-KVO的选择/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Reac-Native" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/28/Reac-Native/" class="article-date">
-  	<time datetime="2015-11-28T13:14:39.000Z" itemprop="datePublished">2015-11-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/28/Reac-Native/">React Native</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>React Native使你能够在Javascript和React的基础上获得完全一致的开发体验，构建世界一流的原生APP。React Native着力于提高多平台开发的开发效率 —— 仅需学习一次，编写任何平台。(Learn once, write anywhere)。Facebook已经在多项产品中使用了React Native，并且将持续地投入建设React Native。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/28/Reac-Native/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS-调试技巧" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/14/iOS-调试技巧/" class="article-date">
-  	<time datetime="2015-11-14T12:40:14.000Z" itemprop="datePublished">2015-11-14</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/14/iOS-调试技巧/">iOS 调试技巧</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>对于软件开发而言，调试是必须学会的技能，重要性不言而喻。对于调试的技能，基本上是可以迁移的，也就是说你以前在其他平台上掌握的很多调试技巧，很多也是可以用在iOS开发中。不同语言、不同IDE、不同平台的调试，有同性也有个性。今天我们就来学习一下iOS开发中的调试技巧，语言暂用为OC，IDE当然是强大的Xcode。</p>
-<blockquote>
-<ul>
-<li>断点调试</li>
-<li>NSLog调试</li>
-<li>Xcode视图调试
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/14/iOS-调试技巧/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-iOS-In-App-Purchase" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/15/iOS-In-App-Purchase/" class="article-date">
-  	<time datetime="2015-10-15T12:35:01.000Z" itemprop="datePublished">2015-10-15</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/15/iOS-In-App-Purchase/">iOS In-App Purchase</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-苹果iTunes-Connect内购产品信息录入。"><a href="#1-苹果iTunes-Connect内购产品信息录入。" class="headerlink" title="1.苹果iTunes Connect内购产品信息录入。"></a>1.苹果iTunes Connect内购产品信息录入。</h2><h5 id="1）创建app内购买项目（Create-New），选择类型："><a href="#1）创建app内购买项目（Create-New），选择类型：" class="headerlink" title="1）创建app内购买项目（Create New），选择类型："></a>1）创建app内购买项目（Create New），选择类型：</h5><blockquote>
-<p>1.消耗型项目</p>
-<p>对于消耗型 App 内购买项目，用户每次下载时都必须进行购买。一次性服务通常属于消耗型项目，例如钓鱼App 中的鱼饵。</p>
-<p>2.非消耗型项目</p>
-<p>对于非消耗型 App 内购买项目，用户仅需要购买一次。不会过期或随使用而减少的服务通常为非消耗型项目，例如游戏App 的新跑道。</p>
-<p>3.自动续订订阅</p>
-<p>通过自动续订订阅，用户可以购买指定时间期限内的更新和动态内容。除非用户取消选择，否则订阅（例如杂志订阅等）会自动续订。</p>
-<p>4.免费订阅</p>
-<p>通过免费订阅，开发者可以将免费订阅内容放入“报刊杂志”。用户注册免费订阅后，该订阅内容将会出现在与该用户Apple ID 关联的所有设备上。请注意，免费订阅不会过期，并且仅在支持报刊杂志功能的 App 中提供。</p>
-<p>5.非续订订阅</p>
-<p>非续订订阅允许有时限性的营销服务。对于 App 内购买项目中的限时访问内容，就需使用非续订订阅。例如，导航App 中语音导航功能的一周订阅，或者年度订阅已存档的视频或音频的在线目录。</p>
-</blockquote>
-<p>一定要根据自己应用的情况选择正确，不然会被App Store审核团队拒绝。应用内的虚拟币要采用消耗型的，有固定时限的会员选择自动续订订阅。也可以只选择虚拟币充值自己后台购买的情况解决会员问题。</p>
-<h5 id="2）生成共享密钥"><a href="#2）生成共享密钥" class="headerlink" title="2）生成共享密钥"></a>2）生成共享密钥</h5>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/In-App-Purchase/">In-App Purchase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/10/15/iOS-In-App-Purchase/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-多线程GCD-NSThread-NSOperation" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/26/多线程GCD-NSThread-NSOperation/" class="article-date">
-  	<time datetime="2015-09-26T13:39:18.000Z" itemprop="datePublished">2015-09-26</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/26/多线程GCD-NSThread-NSOperation/">多线程GCD NSThread NSOperation</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  在 iOS 中其实目前有 4 套多线程方案，他们分别是：</p>
-<blockquote>
-<ul>
-<li>Pthreads</li>
-<li>NSThread</li>
-<li>GCD</li>
-<li>NSOperation &amp; NSOperationQueue</li>
-</ul>
-</blockquote>
-<p>所以接下来，我会一一讲解这些方案的使用方法和一些案例。在将这些内容的时候，我也会顺带说一些多线程周边产品。比如： 线程同步、 延时执行、 单例模式 等等。</p>
-<h2 id="Pthreads"><a href="#Pthreads" class="headerlink" title="Pthreads"></a>Pthreads</h2><p>其实这个方案不用说的，只是拿来充个数，为了让大家了解一下就好了。百度百科里是这么说的：</p>
-<blockquote>
-<p>POSIX线程（POSIX threads），简称Pthreads，是线程的POSIX标准。该标准定义了创建和操纵线程的一整套API。在类Unix操作系统（Unix、Linux、Mac OS X等）中，都使用Pthreads作为操作系统的线程。</p>
-</blockquote>
-<p>简单地说，这是一套在很多操作系统上都通用的多线程API，所以移植性很强（然并卵），当然在 iOS 中也是可以的。不过这是基于 c语言 的框架，使用起来这酸爽！感受一下：</p>
-<h6 id="Objective-C"><a href="#Objective-C" class="headerlink" title="Objective-C"></a>Objective-C</h6>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/26/多线程GCD-NSThread-NSOperation/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Autolayout" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/20/Autolayout/" class="article-date">
-  	<time datetime="2015-09-20T02:52:12.000Z" itemprop="datePublished">2015-09-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/20/Autolayout/">Autolayout</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>iOS8和iPhone6发布已经过去蛮久了,广大的果粉终于迎来了大屏iPhone,再也不用纠结为大屏买三星舍苹果了…但是对于iOS开发人员来说,迎来了和Android开发开发一样的问题—&gt;各种屏幕的适配(是不是可以要求加工资的节奏).对于适配,网传各种有关Size Class的论点,前段时间太忙,一直没去研究,套用+总的话,苹果在适配方面提供的方法做的比安卓好太多了.自己实测之后,确实很方便0.0(不过,还是想说,适配的核心始终是AutoLayout)<br><img src="http://cc.cocimg.com/api/uploads/20141217/1418795367881579.png" alt="image"></p>
-<h4 id="概念初探"><a href="#概念初探" class="headerlink" title="概念初探"></a>概念初探</h4>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/20/Autolayout/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-github-hexo搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/12/github-hexo搭建博客/" class="article-date">
-  	<time datetime="2015-08-12T12:40:20.000Z" itemprop="datePublished">2015-08-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/12/github-hexo搭建博客/">github hexo搭建博客</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>如果你看到这篇文章说明我已经搭建成功。以前使用过的<a href="http://blog.csdn.net/xiao562994291">CSDN</a>，<a href="http://blog.sina.com.cn/xiaojingyuanblog">新浪博客</a>。</p>
-<p>搭建博客需要：</p>
-<blockquote>
-<ol>
-<li><p>安装<a href="https://nodejs.org/">NOde</a>,下载安装即可。作用：用来生成静态页面的</p>
-</li>
-<li><p>安装Git（xcode自带Git）作用：把本地的hexo内容提交到github上去.</p>
-</li>
-<li>申请github。</li>
-<li>安装完成后下载MarkDown编译器。<a href="http://25.io/mou/store/">Mou免费的</a></li>
-</ol>
-</blockquote>
-<h3 id="1-安装前准备。"><a href="#1-安装前准备。" class="headerlink" title="1. 安装前准备。"></a>1. 安装前准备。</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/12/github-hexo搭建博客/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -1376,8 +373,8 @@ Server built:   Dec 10 2013 22:09:38
 		fancybox: true,
 		mathjax: true,
 		animate: undefined,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
