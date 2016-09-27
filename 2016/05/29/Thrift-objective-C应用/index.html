@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://xiaodev.cn/2016/05/29/Thrift-objective-C应用/index.html">
 <meta property="og:site_name" content="肖的技术博客">
 <meta property="og:description" content="Thrift是一个跨语言的服务部署框架，最初由Facebook于2007年开发，2008年进入Apache开源项目。Thrift通过一个中间语言(IDL, 接口定义语言)来定义RPC的接口和数据类型，然后通过一个编译器生成不同语言的代码（目前支持C++,Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk和OCam">
-<meta property="og:updated_time" content="2016-06-20T01:11:01.000Z">
+<meta property="og:updated_time" content="2016-09-27T07:57:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Thrift objective C应用">
 <meta name="twitter:description" content="Thrift是一个跨语言的服务部署框架，最初由Facebook于2007年开发，2008年进入Apache开源项目。Thrift通过一个中间语言(IDL, 接口定义语言)来定义RPC的接口和数据类型，然后通过一个编译器生成不同语言的代码（目前支持C++,Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk和OCam">
@@ -245,7 +245,9 @@
 <p>Thrift支持Mac OS X10.5及以上版本，iOS4及以上版本。iOS5和Mac OS10.7及以上OC开始支持ARC，自动管理Retain/release.</p>
 <p>Thrift0.8.0不支持ARC，如果你的应用使用了ARC模式，你可以在Xcode的Targets-》BuildPhases-》COmpilSource把Thrift相关文件设置-fno-objc-arc。Thrift0.9.0开始支出ARC和非ARC，他自动适应程序的ARC和非ARC模式，不需要手动转换。</p>
 <h3 id="安装Thrift"><a href="#安装Thrift" class="headerlink" title="安装Thrift"></a>安装Thrift</h3><a id="more"></a>
-<pre><code>$ brew --version
+<p>如果没有安装brew可以去<a href="http://brew.sh/index_zh-cn.html" target="_blank" rel="external">官网</a>安装,直接在终端上运行下面一句命令就可以。</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+$ brew --version
 </code></pre><p> 可以查看brew版本信息，如果没有那么你应该先安装一个brew了。<br> 如果想升级一下：</p>
 <pre><code>sudo brew update
 </code></pre><p>  然后安装Thrift</p>
