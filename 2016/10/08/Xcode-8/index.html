@@ -6,27 +6,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>Xcode 8问题及解决方案 | 肖的技术博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###1.代码注释不能用
-原来的代码注释选择代码，cmd+/ 即可，现在不管用了。在终端上运行sudo /usr/libexec/xpccachectl 然后彻底退出Xcode重启Xcode，如果不可以就从启电脑。
+  <meta name="description" content="1.代码注释不能用原来的代码注释选择代码，cmd+/ 即可，现在不管用了。在终端上运行sudo /usr/libexec/xpccachectl 然后彻底退出Xcode重启Xcode，如果不可以就从启电脑。
 VVDocumenter-Xcode专门写注释的插件不能用了。Xcode自带有代码注释快捷键，option+command+/。
-还可以采用代码块的方式解决这个问题。具体添加代码块的方">
+还可以采用代码块的方式解决这个问题。具体添加代码块的方法是，在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Xcode 8问题及解决方案">
 <meta property="og:url" content="http://xiaodev.cn/2016/10/08/Xcode-8/index.html">
 <meta property="og:site_name" content="肖的技术博客">
-<meta property="og:description" content="###1.代码注释不能用
-原来的代码注释选择代码，cmd+/ 即可，现在不管用了。在终端上运行sudo /usr/libexec/xpccachectl 然后彻底退出Xcode重启Xcode，如果不可以就从启电脑。
+<meta property="og:description" content="1.代码注释不能用原来的代码注释选择代码，cmd+/ 即可，现在不管用了。在终端上运行sudo /usr/libexec/xpccachectl 然后彻底退出Xcode重启Xcode，如果不可以就从启电脑。
 VVDocumenter-Xcode专门写注释的插件不能用了。Xcode自带有代码注释快捷键，option+command+/。
-还可以采用代码块的方式解决这个问题。具体添加代码块的方">
+还可以采用代码块的方式解决这个问题。具体添加代码块的方法是，在">
 <meta property="og:image" content="http://xiaodev.cn/img/xcode81.png">
 <meta property="og:image" content="http://xiaodev.cn/img/xcode82.png">
-<meta property="og:updated_time" content="2016-10-08T08:34:40.000Z">
+<meta property="og:updated_time" content="2016-10-26T08:46:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Xcode 8问题及解决方案">
-<meta name="twitter:description" content="###1.代码注释不能用
-原来的代码注释选择代码，cmd+/ 即可，现在不管用了。在终端上运行sudo /usr/libexec/xpccachectl 然后彻底退出Xcode重启Xcode，如果不可以就从启电脑。
+<meta name="twitter:description" content="1.代码注释不能用原来的代码注释选择代码，cmd+/ 即可，现在不管用了。在终端上运行sudo /usr/libexec/xpccachectl 然后彻底退出Xcode重启Xcode，如果不可以就从启电脑。
 VVDocumenter-Xcode专门写注释的插件不能用了。Xcode自带有代码注释快捷键，option+command+/。
-还可以采用代码块的方式解决这个问题。具体添加代码块的方">
+还可以采用代码块的方式解决这个问题。具体添加代码块的方法是，在">
 <meta name="twitter:image" content="http://xiaodev.cn/img/xcode81.png">
   
     <link rel="alternative" href="/atom.xml" title="肖的技术博客" type="application/atom+xml">
@@ -252,10 +249,10 @@ VVDocumenter-Xcode专门写注释的插件不能用了。Xcode自带有代码注
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>###1.代码注释不能用</p>
-<p>原来的代码注释选择代码，cmd+/ 即可，现在不管用了。<br>在终端上运行sudo /usr/libexec/xpccachectl 然后彻底退出Xcode重启Xcode，如果不可以就从启电脑。</p>
+        <h3 id="1-代码注释不能用"><a href="#1-代码注释不能用" class="headerlink" title="1.代码注释不能用"></a>1.代码注释不能用</h3><p>原来的代码注释选择代码，cmd+/ 即可，现在不管用了。<br>在终端上运行sudo /usr/libexec/xpccachectl 然后彻底退出Xcode重启Xcode，如果不可以就从启电脑。</p>
 <p>VVDocumenter-Xcode专门写注释的插件不能用了。<br>Xcode自带有代码注释快捷键，option+command+/。</p>
 <p>还可以采用代码块的方式解决这个问题。具体添加代码块的方法是，<br>在.m文件中写好代码块，选中，然后点击鼠标左键，不要放开，拖动到右边的code snippets面板中去。</p>
+<a id="more"></a>
 <p><img src="/img/xcode81.png" alt="image"><br>拖拽过去后，选中编辑。</p>
 <p><img src="/img/xcode82.png" alt="image"></p>
 <p>可以进行编辑了。Title，就是会显示在右侧的Code snippets面板中的标题（名字）了；第二个是Summary，这个就是显示的代码块描述；第三个Platform平台，根可以下拉选择（All／IOS／OS X）；第四个是语言（Langauge），你自己选吧；第五个或许你会比较感兴趣了，就是设置快捷键了，比如：你输入@zs，保存后就可以通过直接输入该快捷键进行编码了，很方便的；第六个是该Snippets的生效区域，你也可以进行选择。</p>
@@ -273,7 +270,7 @@ VVDocumenter-Xcode专门写注释的插件不能用了。Xcode自带有代码注
 <pre><code>&lt;key&gt;NSPhotoLibraryUsageDescription&lt;/key&gt;
 &lt;string&gt;photoLibraryDesciption&lt;/string&gt;
 </code></pre><h3 id="3-UI混乱"><a href="#3-UI混乱" class="headerlink" title="3.UI混乱"></a>3.UI混乱</h3><p> 升级到xcode8后发现以前的很多界面乱了。<br> Label字显示不全，字体变宽，原有的frame需要做相应的调整稍微加宽。<br> 以前storyboard的束缚也需要调整，打开文件会发现很多警告，报错。自我感觉应该是以前可加可不加的束缚，xcode8这里必须加了。</p>
-<h3 id="4-莫名其妙的bug日志。"><a href="#4-莫名其妙的bug日志。" class="headerlink" title="4.莫名其妙的bug日志。"></a>4.莫名其妙的bug日志。</h3><p>点击项目Edit Scheme - Run - Arguments - Environment Variables里添加：Name：OS_ACTIVITY_MODE  Value：disable</p>
+<h3 id="4-莫名其妙的bug日志。"><a href="#4-莫名其妙的bug日志。" class="headerlink" title="4.莫名其妙的bug日志。"></a>4.莫名其妙的bug日志。</h3><p>点击项目Edit Scheme 》 Run 》 Arguments 》 Environment Variables里添加：Name：OS_ACTIVITY_MODE  Value：disable</p>
 
       
     </div>
