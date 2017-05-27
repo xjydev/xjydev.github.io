@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -203,6 +203,73 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-浮点数的精度" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/04/浮点数的精度/" class="article-date">
+  	<time datetime="2017-03-04T03:42:24.000Z" itemprop="datePublished">2017-03-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/04/浮点数的精度/">浮点数的精度</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="浮点数为什么会有精度问题？"><a href="#浮点数为什么会有精度问题？" class="headerlink" title="浮点数为什么会有精度问题？"></a>浮点数为什么会有精度问题？</h3><p>计算机是用二进制来计算储存的，程序员写的十进制的小数，计算机内部只能用二进制小数来表达1/2, 1/4, 1/8, 1/16, 1/32, 1/64, 1/128 … 1/(2^n），所有无法精准。</p>
+<h5 id="例如：十进制的0-2。"><a href="#例如：十进制的0-2。" class="headerlink" title="例如：十进制的0.2。"></a>例如：十进制的0.2。</h5><p>0.01 = 1/4 = 0.25 ,太大</p>
+<p>0.001 =1/8 = 0.125 , 又太小</p>
+<p>0.0011 = 1/8 + 1/16 = 0.1875 , 逼近0.2了</p>
+<p>0.00111 = 1/8 + 1/16 + 1/32 = 0.21875 , 又大了</p>
+<p>0.001101 = 1/8+ 1/16 + 1/64 = 0.203125 还是大</p>
+<p>0.0011001 = 1/8 + 1/16 + 1/128 = 0.1953125 这结果不错</p>
+<p>0.00110011 = 1/8+1/16+1/128+1/256 = 0.19921875 </p>
+<h3 id="浮点数的解决办法"><a href="#浮点数的解决办法" class="headerlink" title="浮点数的解决办法"></a>浮点数的解决办法</h3><p>展示的时候 %.2f,这种方法可以使展示准确到你想要的位数。<br>计算的时候可以使用round()函数来提高精度，例如float a，精准到后两位，round(a*100.00)/100。</p>
+<p>double f = 3.4999</p>
+<p>round(b*100.00)/100 = 3.500000</p>
+<p>round(b) = 3.000000</p>
+<p>ceil(b) = 4.000000</p>
+<p>floor(b) = 3.000000</p>
+<p>round：如果参数是小数，则求本身的四舍五入。<br>ceil：如果参数是小数，则求最小的整数但不小于本身.<br>floor：如果参数是小数，则求最大的整数但不大于本身. </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-cocoapods-的制作" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1418,79 +1485,10 @@ Server built:   Dec 10 2013 22:09:38
 
 
   
-    <article id="post-github-hexo搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2015/08/12/github-hexo搭建博客/" class="article-date">
-  	<time datetime="2015-08-12T12:40:20.000Z" itemprop="datePublished">2015-08-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/12/github-hexo搭建博客/">github hexo搭建博客</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<p>如果你看到这篇文章说明我已经搭建成功。以前使用过的<a href="http://blog.csdn.net/xiao562994291">CSDN</a>，<a href="http://blog.sina.com.cn/xiaojingyuanblog">新浪博客</a>。</p>
-<p>搭建博客需要：</p>
-<blockquote>
-<ol>
-<li><p>安装<a href="https://nodejs.org/">NOde</a>,下载安装即可。作用：用来生成静态页面的</p>
-</li>
-<li><p>安装Git（xcode自带Git）作用：把本地的hexo内容提交到github上去.</p>
-</li>
-<li>申请github。</li>
-<li>安装完成后下载MarkDown编译器。<a href="http://25.io/mou/store/">Mou免费的</a></li>
-</ol>
-</blockquote>
-<h3 id="1-安装前准备。"><a href="#1-安装前准备。" class="headerlink" title="1. 安装前准备。"></a>1. 安装前准备。</h3>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/12/github-hexo搭建博客/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">
