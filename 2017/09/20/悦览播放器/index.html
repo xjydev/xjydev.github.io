@@ -4,17 +4,39 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>肖</title>
+  <title>悦览播放器 | 肖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="OC,Swift,Html5,PHP">
-<meta property="og:type" content="website">
-<meta property="og:title" content="肖">
-<meta property="og:url" content="http://xiaodev.cn/page/2/index.html">
+  <meta name="description" content="一款几乎支持所有格式的视频音频播放器，文件管理工具。
+AppStore下载
+功能如下：视频音频播放：几乎所有的视频音频格式都支持，音频支持后台播放。视频播放器支持多种手势，操作方便。
+文件传输：手机往电脑上传输文件，电脑往手机上传输文件，手机往其他手机上传输文件。只要是处在同一局域网内斗可以实现。
+保密安全：手势和指纹的应用解锁密码，文件的加密解密。
+格式转换：常见视频音频格式的格式转换。
+图片浏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="悦览播放器">
+<meta property="og:url" content="http://xiaodev.cn/2017/09/20/悦览播放器/index.html">
 <meta property="og:site_name" content="肖">
-<meta property="og:description" content="OC,Swift,Html5,PHP">
+<meta property="og:description" content="一款几乎支持所有格式的视频音频播放器，文件管理工具。
+AppStore下载
+功能如下：视频音频播放：几乎所有的视频音频格式都支持，音频支持后台播放。视频播放器支持多种手势，操作方便。
+文件传输：手机往电脑上传输文件，电脑往手机上传输文件，手机往其他手机上传输文件。只要是处在同一局域网内斗可以实现。
+保密安全：手势和指纹的应用解锁密码，文件的加密解密。
+格式转换：常见视频音频格式的格式转换。
+图片浏">
+<meta property="og:image" content="http://xiaodev.cn/UlearnPlayer/UlearnIcon.png">
+<meta property="og:image" content="http://xiaodev.cn/UlearnPlayer/UlearnQR.png">
+<meta property="og:updated_time" content="2017-09-20T12:31:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="肖">
-<meta name="twitter:description" content="OC,Swift,Html5,PHP">
+<meta name="twitter:title" content="悦览播放器">
+<meta name="twitter:description" content="一款几乎支持所有格式的视频音频播放器，文件管理工具。
+AppStore下载
+功能如下：视频音频播放：几乎所有的视频音频格式都支持，音频支持后台播放。视频播放器支持多种手势，操作方便。
+文件传输：手机往电脑上传输文件，电脑往手机上传输文件，手机往其他手机上传输文件。只要是处在同一局域网内斗可以实现。
+保密安全：手势和指纹的应用解锁密码，文件的加密解密。
+格式转换：常见视频音频格式的格式转换。
+图片浏">
+<meta name="twitter:image" content="http://xiaodev.cn/UlearnPlayer/UlearnIcon.png">
   
     <link rel="alternative" href="/atom.xml" title="肖" type="application/atom+xml">
   
@@ -202,13 +224,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-多线程GCD-NSThread-NSOperation" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-悦览播放器" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/09/26/多线程GCD-NSThread-NSOperation/" class="article-date">
-  	<time datetime="2015-09-26T13:39:18.000Z" itemprop="datePublished">2015-09-26</time>
+      <a href="/2017/09/20/悦览播放器/" class="article-date">
+  	<time datetime="2017-09-20T04:21:43.000Z" itemprop="datePublished">2017-09-20</time>
 </a>
     </div>
   
@@ -220,183 +240,58 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/26/多线程GCD-NSThread-NSOperation/">多线程GCD NSThread NSOperation</a>
+    <h1 class="article-title" itemprop="name">
+      悦览播放器
     </h1>
   
 
       </header>
       
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>  在 iOS 中其实目前有 4 套多线程方案，他们分别是：</p>
-<blockquote>
-<ul>
-<li>Pthreads</li>
-<li>NSThread</li>
-<li>GCD</li>
-<li>NSOperation &amp; NSOperationQueue</li>
-</ul>
-</blockquote>
-<p>所以接下来，我会一一讲解这些方案的使用方法和一些案例。在将这些内容的时候，我也会顺带说一些多线程周边产品。比如： 线程同步、 延时执行、 单例模式 等等。</p>
-<h2 id="Pthreads"><a href="#Pthreads" class="headerlink" title="Pthreads"></a>Pthreads</h2><p>其实这个方案不用说的，只是拿来充个数，为了让大家了解一下就好了。百度百科里是这么说的：</p>
-<blockquote>
-<p>POSIX线程（POSIX threads），简称Pthreads，是线程的POSIX标准。该标准定义了创建和操纵线程的一整套API。在类Unix操作系统（Unix、Linux、Mac OS X等）中，都使用Pthreads作为操作系统的线程。</p>
-</blockquote>
-<p>简单地说，这是一套在很多操作系统上都通用的多线程API，所以移植性很强（然并卵），当然在 iOS 中也是可以的。不过这是基于 c语言 的框架，使用起来这酸爽！感受一下：</p>
-<h6 id="Objective-C"><a href="#Objective-C" class="headerlink" title="Objective-C"></a>Objective-C</h6>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/26/多线程GCD-NSThread-NSOperation/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Autolayout" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/09/20/Autolayout/" class="article-date">
-  	<time datetime="2015-09-20T02:52:12.000Z" itemprop="datePublished">2015-09-20</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
+      <div class="article-info article-info-post">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/09/20/Autolayout/">Autolayout</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>iOS8和iPhone6发布已经过去蛮久了,广大的果粉终于迎来了大屏iPhone,再也不用纠结为大屏买三星舍苹果了…但是对于iOS开发人员来说,迎来了和Android开发开发一样的问题—&gt;各种屏幕的适配(是不是可以要求加工资的节奏).对于适配,网传各种有关Size Class的论点,前段时间太忙,一直没去研究,套用+总的话,苹果在适配方面提供的方法做的比安卓好太多了.自己实测之后,确实很方便0.0(不过,还是想说,适配的核心始终是AutoLayout)<br><img src="http://cc.cocimg.com/api/uploads/20141217/1418795367881579.png" alt="image"></p>
-<h4 id="概念初探"><a href="#概念初探" class="headerlink" title="概念初探"></a>概念初探</h4>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/09/20/Autolayout/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-github-hexo搭建博客" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/08/12/github-hexo搭建博客/" class="article-date">
-  	<time datetime="2015-08-12T12:40:20.000Z" itemprop="datePublished">2015-08-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/08/12/github-hexo搭建博客/">github hexo搭建博客</a>
-    </h1>
-  
 
-      </header>
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>[TOC]</p>
-<p>如果你看到这篇文章说明我已经搭建成功。以前使用过的<a href="http://blog.csdn.net/xiao562994291">CSDN</a>，<a href="http://blog.sina.com.cn/xiaojingyuanblog">新浪博客</a>。</p>
-<p>搭建博客需要：</p>
-<blockquote>
-<ol>
-<li><p>安装<a href="https://nodejs.org/">NOde</a>,下载安装即可。作用：用来生成静态页面的</p>
-</li>
-<li><p>安装Git（xcode自带Git）作用：把本地的hexo内容提交到github上去.</p>
-</li>
-<li>申请github。</li>
-<li>安装完成后下载MarkDown编译器。<a href="http://25.io/mou/store/">Mou免费的</a></li>
-</ol>
-</blockquote>
-<h3 id="1-安装前准备。"><a href="#1-安装前准备。" class="headerlink" title="1. 安装前准备。"></a>1. 安装前准备。</h3>
+        <h3 id="一款几乎支持所有格式的视频音频播放器，文件管理工具。"><a href="#一款几乎支持所有格式的视频音频播放器，文件管理工具。" class="headerlink" title="一款几乎支持所有格式的视频音频播放器，文件管理工具。"></a>一款几乎支持所有格式的视频音频播放器，文件管理工具。</h3><p><img src="/UlearnPlayer/UlearnIcon.png" alt="image"></p>
+<h3 id="AppStore下载"><a href="#AppStore下载" class="headerlink" title="AppStore下载"></a><a href="https://itunes.apple.com/cn/app/id1184757517?mt=8" target="_blank" rel="external">AppStore下载</a></h3><p><img src="/UlearnPlayer/UlearnQR.png" alt="image"></p>
+<h2 id="功能如下："><a href="#功能如下：" class="headerlink" title="功能如下："></a>功能如下：</h2><h4 id="视频音频播放："><a href="#视频音频播放：" class="headerlink" title="视频音频播放："></a>视频音频播放：</h4><p>几乎所有的视频音频格式都支持，音频支持后台播放。视频播放器支持多种手势，操作方便。</p>
+<h4 id="文件传输："><a href="#文件传输：" class="headerlink" title="文件传输："></a>文件传输：</h4><p>手机往电脑上传输文件，电脑往手机上传输文件，手机往其他手机上传输文件。只要是处在同一局域网内斗可以实现。</p>
+<h4 id="保密安全："><a href="#保密安全：" class="headerlink" title="保密安全："></a>保密安全：</h4><p>手势和指纹的应用解锁密码，文件的加密解密。</p>
+<h4 id="格式转换："><a href="#格式转换：" class="headerlink" title="格式转换："></a>格式转换：</h4><p>常见视频音频格式的格式转换。</p>
+<h4 id="图片浏览，文档浏览："><a href="#图片浏览，文档浏览：" class="headerlink" title="图片浏览，文档浏览："></a>图片浏览，文档浏览：</h4><p>支持图片的浏览和Word、PDF、text、等文档的浏览。</p>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><h4 id="稀有格式视频音频的播放"><a href="#稀有格式视频音频的播放" class="headerlink" title="稀有格式视频音频的播放"></a>稀有格式视频音频的播放</h4><h4 id="手机图片视频快速导入电脑"><a href="#手机图片视频快速导入电脑" class="headerlink" title="手机图片视频快速导入电脑"></a>手机图片视频快速导入电脑</h4><p>悦览播放器使用相册图片导入功能，然后电脑网页中输入应用显示的IP地址，就可以自由的删除下载上传图片。</p>
+<h4 id="电脑视频、音频、图片、文档快速导入手机"><a href="#电脑视频、音频、图片、文档快速导入手机" class="headerlink" title="电脑视频、音频、图片、文档快速导入手机"></a>电脑视频、音频、图片、文档快速导入手机</h4><p>可以通过局域网网页输入手机IP，也可通过iTunes数据线传输。</p>
+<h4 id="手机间文件互传"><a href="#手机间文件互传" class="headerlink" title="手机间文件互传"></a>手机间文件互传</h4><h4 id="文件的保密加密"><a href="#文件的保密加密" class="headerlink" title="文件的保密加密"></a>文件的保密加密</h4>
       
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/08/12/github-hexo搭建博客/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
     </div>
     
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/09/20/QR二维码/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          QR二维码
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/04/浮点数的精度/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浮点数的精度</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -405,15 +300,28 @@
 
 
 
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="悦览播放器" data-title="悦览播放器" data-url="http://xiaodev.cn/2017/09/20/悦览播放器/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
-  
-  
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-    </nav>
-  
+
 </div>
       <footer id="footer">
   <div class="outer">
@@ -437,8 +345,8 @@
 		fancybox: true,
 		mathjax: true,
 		animate: undefined,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
