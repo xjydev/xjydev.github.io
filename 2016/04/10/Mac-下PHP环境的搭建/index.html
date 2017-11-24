@@ -22,7 +22,7 @@ MacBook-Air:~ wgyp$ sudo apachectl -v
 Server version: Apache/2.2.26 (Unix)
 Server built:   Dec 10 2013 22:09:38
 *注意：Apache启动后,以后Mac开机Apache会自动">
-<meta property="og:updated_time" content="2016-04-14T14:42:25.000Z">
+<meta property="og:updated_time" content="2017-11-24T08:38:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac 下PHP环境的搭建">
 <meta name="twitter:description" content="1.启动服务器MacBook-Air:~ wgyp$ sudo apachectl start
@@ -269,7 +269,7 @@ Server built:   Dec 10 2013 22:09:38
 <h3 id="6-重启apache服务器，"><a href="#6-重启apache服务器，" class="headerlink" title="6.重启apache服务器，"></a>6.重启apache服务器，</h3><p>在浏览器中输入<a href="http://localhost/info.php。可以看到效果了。" target="_blank" rel="external">http://localhost/info.php。可以看到效果了。</a><br><em>*注意：如果你按到出现:&lt;?php phpinfo(); ?&gt; 就是第三步没有做好。</em></p>
 <h3 id="7-DocumentRoot，Apache默认读入根目录更改。"><a href="#7-DocumentRoot，Apache默认读入根目录更改。" class="headerlink" title="7.DocumentRoot，Apache默认读入根目录更改。"></a>7.DocumentRoot，Apache默认读入根目录更改。</h3><pre><code>MacBook-Air:~ wgyp$ open /etc/apache2/
 </code></pre><p>刚刚已经改变了httpd.conf的读写权限。找到DocumentRoot；把/Library/WebServer/Documents全部修改成你想要指向的文件夹，在终端输入 sudo apachectl restart 就行了。然后就在你指向的文件夹里编写代码，浏览器中输入localhost+文件名，就可以预览了。</p>
-<h3 id="当然也可以下载集成开发环境，方便快捷。可以去官网下载XAMPP和PhpStorm。"><a href="#当然也可以下载集成开发环境，方便快捷。可以去官网下载XAMPP和PhpStorm。" class="headerlink" title="当然也可以下载集成开发环境，方便快捷。可以去官网下载XAMPP和PhpStorm。"></a>当然也可以下载集成开发环境，方便快捷。可以去官网下载<a href="https://www.apachefriends.org/download.html" target="_blank" rel="external">XAMPP</a>和<a href="https://www.jetbrains.com/phpstorm/" target="_blank" rel="external">PhpStorm</a>。</h3>
+<h3 id="当然也可以下载集成开发环境，方便快捷。可以去官网下载XAMPP和PhpStorm。MAMP。"><a href="#当然也可以下载集成开发环境，方便快捷。可以去官网下载XAMPP和PhpStorm。MAMP。" class="headerlink" title="当然也可以下载集成开发环境，方便快捷。可以去官网下载XAMPP和PhpStorm。MAMP。"></a>当然也可以下载集成开发环境，方便快捷。可以去官网下载<a href="https://www.apachefriends.org/download.html" target="_blank" rel="external">XAMPP</a>和<a href="https://www.jetbrains.com/phpstorm/" target="_blank" rel="external">PhpStorm</a>。<a href="https://www.mamp.info/en/" target="_blank" rel="external">MAMP</a>。</h3>
       
     </div>
     
