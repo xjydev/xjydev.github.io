@@ -4,17 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: 播放器 | 肖</title>
+  <title>cocoaPods 创建私有库 | 肖</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="OC,Swift,Html5,PHP,xiaodev,肖">
-<meta property="og:type" content="website">
-<meta property="og:title" content="肖">
-<meta property="og:url" content="http://xiaodev.cn/tags/播放器/index.html">
+  <meta name="description" content="1.创建远程索引库和私有库在Git上创建一个XSpecs的私有索引库，用来索引以后创建的组件模块。
+2.将远程索引库添加到本地  查看本地的索引库
+pod repo
+ 如果没有安装过私有仓库，应该只有一个工友索引库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cocoaPods 创建私有库">
+<meta property="og:url" content="http://xiaodev.cn/2018/11/25/cocoaPods-创建私有库/index.html">
 <meta property="og:site_name" content="肖">
-<meta property="og:description" content="OC,Swift,Html5,PHP,xiaodev,肖">
+<meta property="og:description" content="1.创建远程索引库和私有库在Git上创建一个XSpecs的私有索引库，用来索引以后创建的组件模块。
+2.将远程索引库添加到本地  查看本地的索引库
+pod repo
+ 如果没有安装过私有仓库，应该只有一个工友索引库">
+<meta property="og:updated_time" content="2018-11-26T10:40:22.170Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="肖">
-<meta name="twitter:description" content="OC,Swift,Html5,PHP,xiaodev,肖">
+<meta name="twitter:title" content="cocoaPods 创建私有库">
+<meta name="twitter:description" content="1.创建远程索引库和私有库在Git上创建一个XSpecs的私有索引库，用来索引以后创建的组件模块。
+2.将远程索引库添加到本地  查看本地的索引库
+pod repo
+ 如果没有安装过私有仓库，应该只有一个工友索引库">
   
     <link rel="alternative" href="/atom.xml" title="肖" type="application/atom+xml">
   
@@ -202,53 +212,130 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-cocoaPods-创建私有库" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/20/悦览播放器/" class="archive-article-date">
-  	<time datetime="2017-09-20T04:21:43.000Z" itemprop="datePublished">Sep 20</time>
+    <div class="article-meta">
+      <a href="/2018/11/25/cocoaPods-创建私有库/" class="article-date">
+  	<time datetime="2018-11-25T03:24:40.000Z" itemprop="datePublished">2018-11-25</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/20/悦览播放器/">悦览播放器</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      cocoaPods 创建私有库
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/player/">player</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/播放器/">播放器</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocoaPods/">cocoaPods</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/私有库/">私有库</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-创建远程索引库和私有库"><a href="#1-创建远程索引库和私有库" class="headerlink" title="1.创建远程索引库和私有库"></a>1.创建远程索引库和私有库</h4><p>在Git上创建一个XSpecs的私有索引库，用来索引以后创建的组件模块。</p>
+<h4 id="2-将远程索引库添加到本地"><a href="#2-将远程索引库添加到本地" class="headerlink" title="2.将远程索引库添加到本地"></a>2.将远程索引库添加到本地</h4><p>  查看本地的索引库</p>
+<pre><code>pod repo
+</code></pre><p> 如果没有安装过私有仓库，应该只有一个工友索引库<br><a id="more"></a><br>    master<br>    Type: git (master)<br>    URL:  <a href="https://github.com/CocoaPods/Specs.git" target="_blank" rel="external">https://github.com/CocoaPods/Specs.git</a><br>    Path: /Users/<em>*</em>/.cocoapods/repos/master</p>
+<p>  添加刚刚创建的索引,把索引库clone到本地，然后添加索引地址到本地。</p>
+<pre><code> cd /Users/......
+ git clone https://gitee.com/......
+// pod repo add 索引库名称 索引库地址
+pod repo add XSpecs https://gitee......
+</code></pre><p>可以使用’pod repo’查看是否添加成功，如果添加成功，会显示你的索引库名称和地址。</p>
+<h4 id="3-在本地创建一个pod模板库"><a href="#3-在本地创建一个pod模板库" class="headerlink" title="3.在本地创建一个pod模板库"></a>3.在本地创建一个pod模板库</h4><h6 id="在Git上创建一个组件的仓库。"><a href="#在Git上创建一个组件的仓库。" class="headerlink" title="在Git上创建一个组件的仓库。"></a>在Git上创建一个组件的仓库。</h6><h6 id="快速创建模板库"><a href="#快速创建模板库" class="headerlink" title="快速创建模板库"></a>快速创建模板库</h6><p>cd到合适的地方，使用命令 </p>
+<pre><code>// pod lib create 组件名
+ pod lib create XDPhoto
+</code></pre><p>  会让选择一些配置，根据自己的情况自行选择。<br>  把ReplaceMe.m文件删除，替换成自己的组件代码。Classes文件夹中的文件，是pod install时要下载下来的文件。如果里面有两个文件夹，pod install后文件自动也会分文件显示。<br>  修改Spec文件，主要是源这一项要正确,地址一定是自己组件的远方仓库地址，其他可以根据自己项目情况配置。</p>
+<pre><code>s.source  = { :git =&gt; &apos;https://gitee.com/.....git&apos;, :tag =&gt; s.version.to_s }
+</code></pre><h4 id="4-上传代码和打标签"><a href="#4-上传代码和打标签" class="headerlink" title="4.上传代码和打标签"></a>4.上传代码和打标签</h4><p>上传组件的代码</p>
+<pre><code> $ git add .
+ $ git commit -m &quot;init&quot;
+ git remote add origin https://gitee.com/xiaodev/XDPhoto.git
+ git push -f origin master//第一次加上-f
+//git push origin master
+</code></pre><p> 打上和spec文件中s.version一致的tag</p>
+<pre><code>git tag &apos;0.1.0&apos;
+git push --tags
+</code></pre><h4 id="5-提交spec至私有索引库"><a href="#5-提交spec至私有索引库" class="headerlink" title="5.提交spec至私有索引库"></a>5.提交spec至私有索引库</h4><p>本地检测，本地验证不会验证 s.source 中的tag。私有仓库的验证要加上–private，不然会有警告，也可以加上–allow-warnings忽略警告。</p>
+<pre><code>pod lib lint --private
+</code></pre><p> 远程验证，会验证s.source 中的tag。</p>
+<pre><code>pod spec lint --private
+</code></pre><p> 提交podspec到索引仓库。</p>
+<pre><code> // pod repo push 私有索引库名称 spec名称.podspec 
+pod repo push XSpecs SD**.podspec 
+</code></pre><p>成功后可以尝试搜索一下组件。</p>
+<pre><code>pod search &apos;SD**&apos;
+</code></pre><h4 id="6-使用"><a href="#6-使用" class="headerlink" title="6.使用"></a>6.使用</h4><p>添加组件到项目的Podfile中。<br>文件顶部添加描述</p>
+<pre><code>// 第二行是为了保证公有库的正常使用
+source &apos;https://gitee.com/LinXunFeng/LXFSpecs.git&apos;
+source &apos;https://github.com/CocoaPods/Specs.git&apos;
+</code></pre><p> 然后添加组件</p>
+<pre><code>pod &apos;SD**&apos;
+</code></pre><p>安装组件</p>
+<pre><code>pod install
+</code></pre>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/06/privacy/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">privacy</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="cocoaPods-创建私有库" data-title="cocoaPods 创建私有库" data-url="http://xiaodev.cn/2018/11/25/cocoaPods-创建私有库/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -274,9 +361,9 @@
 		mathjax: true,
 		animate: undefined,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: undefined
 	}

@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/In-App-Purchase/" style="font-size: 10px;">In-App Purchase</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/Runtime/" style="font-size: 10px;">Runtime</a> <a href="/tags/Thrift/" style="font-size: 10px;">Thrift</a> <a href="/tags/UI设计/" style="font-size: 10px;">UI设计</a> <a href="/tags/Xcode8/" style="font-size: 10px;">Xcode8</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS10/" style="font-size: 10px;">iOS10</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/player/" style="font-size: 10px;">player</a> <a href="/tags/round/" style="font-size: 10px;">round()</a> <a href="/tags/二维码扫描，二维码生产/" style="font-size: 10px;">二维码扫描，二维码生产</a> <a href="/tags/审核/" style="font-size: 10px;">审核</a> <a href="/tags/播放器/" style="font-size: 10px;">播放器</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/浮点数精度/" style="font-size: 10px;">浮点数精度</a>
+						<a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/In-App-Purchase/" style="font-size: 10px;">In-App Purchase</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/Runtime/" style="font-size: 10px;">Runtime</a> <a href="/tags/Thrift/" style="font-size: 10px;">Thrift</a> <a href="/tags/UI设计/" style="font-size: 10px;">UI设计</a> <a href="/tags/Xcode8/" style="font-size: 10px;">Xcode8</a> <a href="/tags/cocoaPods/" style="font-size: 10px;">cocoaPods</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS10/" style="font-size: 10px;">iOS10</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/player/" style="font-size: 10px;">player</a> <a href="/tags/round/" style="font-size: 10px;">round()</a> <a href="/tags/二维码扫描，二维码生产/" style="font-size: 10px;">二维码扫描，二维码生产</a> <a href="/tags/审核/" style="font-size: 10px;">审核</a> <a href="/tags/播放器/" style="font-size: 10px;">播放器</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/浮点数精度/" style="font-size: 10px;">浮点数精度</a> <a href="/tags/私有库/" style="font-size: 10px;">私有库</a>
 					</div>
 				</section>
 				
@@ -203,6 +203,69 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-cocoaPods-创建私有库" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2018/11/25/cocoaPods-创建私有库/" class="article-date">
+  	<time datetime="2018-11-25T03:24:40.000Z" itemprop="datePublished">2018-11-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/25/cocoaPods-创建私有库/">cocoaPods 创建私有库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-创建远程索引库和私有库"><a href="#1-创建远程索引库和私有库" class="headerlink" title="1.创建远程索引库和私有库"></a>1.创建远程索引库和私有库</h4><p>在Git上创建一个XSpecs的私有索引库，用来索引以后创建的组件模块。</p>
+<h4 id="2-将远程索引库添加到本地"><a href="#2-将远程索引库添加到本地" class="headerlink" title="2.将远程索引库添加到本地"></a>2.将远程索引库添加到本地</h4><p>  查看本地的索引库</p>
+<pre><code>pod repo
+</code></pre><p> 如果没有安装过私有仓库，应该只有一个工友索引库<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cocoaPods/">cocoaPods</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/私有库/">私有库</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2018/11/25/cocoaPods-创建私有库/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-privacy" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -1368,66 +1431,6 @@ Server built:   Dec 10 2013 22:09:38
       
         <p class="article-more-link">
           <a  href="/2015/12/14/iOS中delegate-Notification-KVO的选择/#more">阅读全文 >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Reac-Native" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/11/28/Reac-Native/" class="article-date">
-  	<time datetime="2015-11-28T13:14:39.000Z" itemprop="datePublished">2015-11-28</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/28/Reac-Native/">React Native</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>React Native使你能够在Javascript和React的基础上获得完全一致的开发体验，构建世界一流的原生APP。React Native着力于提高多平台开发的开发效率 —— 仅需学习一次，编写任何平台。(Learn once, write anywhere)。Facebook已经在多项产品中使用了React Native，并且将持续地投入建设React Native。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/11/28/Reac-Native/#more">阅读全文 >></a>
         </p>
       
       <div class="clearfix"></div>
