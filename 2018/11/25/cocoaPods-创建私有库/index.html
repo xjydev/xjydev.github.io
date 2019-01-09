@@ -18,7 +18,7 @@ pod repo
 2.将远程索引库添加到本地  查看本地的索引库
 pod repo
  如果没有安装过私有仓库，应该只有一个工友索引库">
-<meta property="og:updated_time" content="2018-11-30T11:23:14.364Z">
+<meta property="og:updated_time" content="2018-12-04T11:01:36.078Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cocoaPods 创建私有库">
 <meta name="twitter:description" content="1.创建远程索引库和私有库在Git上创建一个XSpecs的私有索引库，用来索引以后创建的组件模块。
@@ -266,7 +266,7 @@ pod repo add XSpecs https://gitee......
 <pre><code>s.source  = { :git =&gt; &apos;https://gitee.com/.....git&apos;, :tag =&gt; s.version.to_s }
 </code></pre><h4 id="4-上传代码和打标签"><a href="#4-上传代码和打标签" class="headerlink" title="4.上传代码和打标签"></a>4.上传代码和打标签</h4><p>上传组件的代码</p>
 <blockquote>
-<p>上传代码前可以先本地检测一下，检测通过后再进行代码上传和tag操作。<br>pod spec lint –private</p>
+<p>上传代码前可以先本地检测一下，检测通过后再进行代码上传和tag操作。<br>pod spec lint </p>
 </blockquote>
 <pre><code> $ git add .
  $ git commit -m &quot;init&quot;
@@ -290,7 +290,7 @@ pod repo push XSpecs SD**.podspec
 </blockquote>
 <h4 id="6-使用"><a href="#6-使用" class="headerlink" title="6.使用"></a>6.使用</h4><p>添加组件到项目的Podfile中。<br>文件顶部添加描述</p>
 <pre><code>// 第二行是为了保证公有库的正常使用
-source &apos;https://gitee.com/LinXunFeng/LXFSpecs.git&apos;
+source &apos;https://gitee.com/x***/XSpecs.git&apos;
 source &apos;https://github.com/CocoaPods/Specs.git&apos;
 </code></pre><p> 然后添加组件</p>
 <pre><code>pod &apos;SD**&apos;
@@ -348,7 +348,7 @@ source &apos;https://github.com/CocoaPods/Specs.git&apos;
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 xiaodev
+    		&copy; 2019 xiaodev
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
