@@ -20,7 +20,7 @@ git init
 git init
    初始化本地版本库
 修改和提交">
-<meta property="og:updated_time" content="2017-04-24T08:34:04.000Z">
+<meta property="og:updated_time" content="2019-01-09T10:32:02.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 常用命令">
 <meta name="twitter:description" content="创建版本库git clone &amp;lt;url&amp;gt;
@@ -321,7 +321,15 @@ git init
 </code></pre><p>  删除远程分支或标签</p>
 <pre><code>git push --tags
 </code></pre><p>   上传所有标签</p>
-<h3 id="其他方式"><a href="#其他方式" class="headerlink" title="其他方式"></a>其他方式</h3><p>Xcode自带Git管理工具Source Control。</p>
+<h5 id="切换远程仓库地址"><a href="#切换远程仓库地址" class="headerlink" title="切换远程仓库地址"></a>切换远程仓库地址</h5><p>  查看远程地址</p>
+<pre><code>$ git remote -v
+</code></pre><p>  切换远程仓库地址</p>
+<pre><code>$ git remote set-url origin https://github.com/
+</code></pre><p>   删除远程仓库地址</p>
+<pre><code>$ git remote rm origin
+</code></pre><p>   添加新远程仓库</p>
+<pre><code>$ git remote add origin https://g……
+</code></pre><h3 id="其他方式"><a href="#其他方式" class="headerlink" title="其他方式"></a>其他方式</h3><p>Xcode自带Git管理工具Source Control。</p>
 <h3 id="当然还有其他的git管理工具。"><a href="#当然还有其他的git管理工具。" class="headerlink" title="当然还有其他的git管理工具。"></a>当然还有其他的git管理工具。</h3>
       
     </div>
