@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/In-App-Purchase/" style="font-size: 10px;">In-App Purchase</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/Runtime/" style="font-size: 10px;">Runtime</a> <a href="/tags/Thrift/" style="font-size: 10px;">Thrift</a> <a href="/tags/UI设计/" style="font-size: 10px;">UI设计</a> <a href="/tags/Xcode8/" style="font-size: 10px;">Xcode8</a> <a href="/tags/cocoaPods/" style="font-size: 10px;">cocoaPods</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS10/" style="font-size: 10px;">iOS10</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/player/" style="font-size: 10px;">player</a> <a href="/tags/round/" style="font-size: 10px;">round()</a> <a href="/tags/二维码扫描，二维码生产/" style="font-size: 10px;">二维码扫描，二维码生产</a> <a href="/tags/审核/" style="font-size: 10px;">审核</a> <a href="/tags/播放器/" style="font-size: 10px;">播放器</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/浮点数精度/" style="font-size: 10px;">浮点数精度</a> <a href="/tags/私有库/" style="font-size: 10px;">私有库</a>
+						<a href="/tags/CocoaPods/" style="font-size: 10px;">CocoaPods</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/In-App-Purchase/" style="font-size: 10px;">In-App Purchase</a> <a href="/tags/PHP/" style="font-size: 10px;">PHP</a> <a href="/tags/ReactiveCocoa/" style="font-size: 10px;">ReactiveCocoa</a> <a href="/tags/Runtime/" style="font-size: 10px;">Runtime</a> <a href="/tags/Thrift/" style="font-size: 10px;">Thrift</a> <a href="/tags/UI设计/" style="font-size: 10px;">UI设计</a> <a href="/tags/Xcode8/" style="font-size: 10px;">Xcode8</a> <a href="/tags/cocoaPods/" style="font-size: 10px;">cocoaPods</a> <a href="/tags/github/" style="font-size: 10px;">github</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/iOS/" style="font-size: 20px;">iOS</a> <a href="/tags/iOS10/" style="font-size: 10px;">iOS10</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/other/" style="font-size: 10px;">other</a> <a href="/tags/player/" style="font-size: 10px;">player</a> <a href="/tags/round/" style="font-size: 10px;">round()</a> <a href="/tags/二维码扫描，二维码生产/" style="font-size: 10px;">二维码扫描，二维码生产</a> <a href="/tags/审核/" style="font-size: 10px;">审核</a> <a href="/tags/播放器/" style="font-size: 10px;">播放器</a> <a href="/tags/文件管理/" style="font-size: 10px;">文件管理</a> <a href="/tags/浮点数精度/" style="font-size: 10px;">浮点数精度</a> <a href="/tags/用户使用条款/" style="font-size: 10px;">用户使用条款</a> <a href="/tags/私有库/" style="font-size: 10px;">私有库</a>
 					</div>
 				</section>
 				
@@ -203,6 +203,72 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-iOS中delegate-Notification-KVO的选择" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/14/iOS中delegate-Notification-KVO的选择/" class="article-date">
+  	<time datetime="2015-12-14T13:58:43.000Z" itemprop="datePublished">2015-12-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/14/iOS中delegate-Notification-KVO的选择/">iOS中delegate,Notification,KVO的选择</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在开发ios应用的时候，我们会经常遇到一个常见的问题：在不过分耦合的前提下，controllers间怎么进行通信。在IOS应用不断的出现三种模式来实现这种通信：</p>
+<blockquote>
+<p>1.委托delegation；</p>
+<p>2.通知中心Notification Center；</p>
+<p>3.键值观察key value observing，KVO</p>
+</blockquote>
+<p>因此，那为什么我们需要这些模式以及什么时候用它以及什么时候不用它。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS/">iOS</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/12/14/iOS中delegate-Notification-KVO的选择/#more">阅读全文 >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-Reac-Native" class="article article-type-post" itemscope itemprop="blogPost">
   
