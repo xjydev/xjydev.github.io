@@ -1,51 +1,19 @@
-<pre lang="text" data-origin="pm_code_preview" style="margin: 0px; padding: 0px; list-style: none; font-family: Courier, "Courier New", monospace; display: block;">
 
-{
-
-"applinks": {
-
-"apps": [],
-
-"details": [
-
-{
-
-"appID": "Q494Q8N6JY.cn.xiaodev.XPlayer",
-
-"paths": [ "/qq_conn/1109312840","/xplayer/*"]
-
-},
-
-{
-
-"appID": "Q494Q8N6JY.xiaodev.cn.QRcreate",
-
-"paths": [ "/qr/*" ]
-
+{ "applinks": {
+   "apps": [],
+   "details": [ {
+        "appID": "Q494Q8N6JY.cn.xiaodev.XPlayer",
+        "paths": ["/qq_conn/1109312840","/xplayer/*" ]
+      }, {
+        "appID":"Q494Q8N6JY.xiaodev.cn.QRcreate",
+        "paths": ["/qr/*" , "/qq_conn/1203565616/*" ]
+      } , {
+        "appID":"Q494Q8N6JY.xiaodev.cn.filesmanager",
+        "paths": ["/files/*", "/qq_conn/1184757517/*" ]
+      } , {
+        "appID":"Q494Q8N6JY.xiaodev.cn.wenjian",
+        "paths": ["/wenjian/*", "/qq_conn/1241120027/*" ]
+      } 
+     ] 
+   }
 }
-,
-
-{
-
-"appID": "Q494Q8N6JY.xiaodev.cn.filesmanager",
-
-"paths": [ "/files/*" ]
-
-}
-,
-
-{
-
-"appID": "Q494Q8N6JY.xiaodev.cn.wenjian",
-
-"paths": [ "/wenjian/*" ]
-
-}
-
-]
-
-}
-
-}
-
-</pre>
