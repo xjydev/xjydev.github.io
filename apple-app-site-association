@@ -3,7 +3,7 @@
    "apps": [],
    "details": [ {
         "appID": "Q494Q8N6JY.cn.xiaodev.XPlayer",
-        "paths": ["/qq_conn/1109312840","/xplayer/*" ]
+        "paths": ["/qq_conn/1109312840/*","/xplayer/*" ]
       }, {
         "appID":"Q494Q8N6JY.xiaodev.cn.QRcreate",
         "paths": ["/qr/*" , "/qq_conn/1203565616/*" ]
