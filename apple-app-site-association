@@ -6,13 +6,13 @@
         "paths": ["/qq_conn/1109312840/*","/xplayer/*" ]
       }, {
         "appID":"Q494Q8N6JY.xiaodev.cn.QRcreate",
-        "paths": ["/qr/*" , "/qq_conn/1203565616/*" ]
+        "paths": ["/qr/*" , "/qq_conn/1106063848/*" ]
       } , {
         "appID":"Q494Q8N6JY.xiaodev.cn.filesmanager",
-        "paths": ["/files/*", "/qq_conn/1184757517/*" ]
+        "paths": ["/files/*", "/qq_conn/1105820767/*" ]
       } , {
         "appID":"Q494Q8N6JY.xiaodev.cn.wenjian",
-        "paths": ["/wenjian/*", "/qq_conn/1241120027/*" ]
+        "paths": ["/wenjian/*", "/qq_conn/1106398567/*" ]
       } 
      ] 
    }
