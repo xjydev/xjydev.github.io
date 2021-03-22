@@ -90,46 +90,46 @@
         <h4 id="1-创建远程索引库和私有库"><a href="#1-创建远程索引库和私有库" class="headerlink" title="1.创建远程索引库和私有库"></a>1.创建远程索引库和私有库</h4><p>在Git上创建一个XSpecs的私有索引库，用来索引以后创建的组件模块。</p>
 <h4 id="2-将远程索引库添加到本地"><a href="#2-将远程索引库添加到本地" class="headerlink" title="2.将远程索引库添加到本地"></a>2.将远程索引库添加到本地</h4><p>  查看本地的索引库</p>
 <pre><code>pod repo
-</code></pre><p> 如果没有安装过私有仓库，应该只有一个共有索引库<br><a id="more"></a><br>    master<br>    Type: git (master)<br>    URL:  <a href="https://github.com/CocoaPods/Specs.git" target="_blank" rel="external">https://github.com/CocoaPods/Specs.git</a><br>    Path: /Users/<em>*</em>/.cocoapods/repos/master</p>
+</code></pre><p> 如果没有安装过私有仓库，应该只有一个共有索引库<br><a id="more"></a><br>    master <br><br>    Type: git (master) <br><br>    URL:  <a href="https://github.com/CocoaPods/Specs.git" target="_blank" rel="external">https://github.com/CocoaPods/Specs.git</a> <br><br>    Path: /Users/<em>*</em>/.cocoapods/repos/master <br></p>
 <p>  添加刚刚创建的索引,把索引库clone到本地，然后添加索引地址到本地。</p>
-<pre><code> cd /Users/......
- git clone https://gitee.com/......
-// pod repo add 索引库名称 索引库地址
-pod repo add XSpecs https://gitee......
+<pre><code> cd /Users/...... &lt;br&gt;
+ git clone https://gitee.com/...... &lt;br&gt;
+// pod repo add 索引库名称 索引库地址 &lt;br&gt;
+pod repo add XSpecs https://gitee...... &lt;br&gt;
 </code></pre><p>可以使用’pod repo’查看是否添加成功，如果添加成功，会显示你的索引库名称和地址。</p>
 <h4 id="3-在本地创建一个pod模板库"><a href="#3-在本地创建一个pod模板库" class="headerlink" title="3.在本地创建一个pod模板库"></a>3.在本地创建一个pod模板库</h4><h6 id="在Git上创建一个组件的仓库。"><a href="#在Git上创建一个组件的仓库。" class="headerlink" title="在Git上创建一个组件的仓库。"></a>在Git上创建一个组件的仓库。</h6><h6 id="快速创建模板库"><a href="#快速创建模板库" class="headerlink" title="快速创建模板库"></a>快速创建模板库</h6><p>cd到合适的地方，使用命令 </p>
-<pre><code>// pod lib create 组件名
- pod lib create XDPhoto
+<pre><code>// pod lib create 组件名 &lt;br&gt;
+ pod lib create XDPhoto &lt;br&gt;
 </code></pre><p>  会让选择一些配置，根据自己的情况自行选择。<br>  把ReplaceMe.m文件删除，替换成自己的组件代码。Classes文件夹中的文件，是pod install时要下载下来的文件。如果里面有两个文件夹，pod install后文件自动也会分文件显示。<br>  修改Spec文件，主要是源这一项要正确,地址一定是自己组件的远方仓库地址，其他可以根据自己项目情况配置。</p>
 <pre><code>s.source  = { :git =&gt; &apos;https://gitee.com/.....git&apos;, :tag =&gt; s.version.to_s }
 </code></pre><h4 id="4-上传代码和打标签"><a href="#4-上传代码和打标签" class="headerlink" title="4.上传代码和打标签"></a>4.上传代码和打标签</h4><p>上传组件的代码</p>
 <blockquote>
 <p>上传代码前可以先本地检测一下，检测通过后再进行代码上传和tag操作。<br>pod spec lint </p>
 </blockquote>
-<pre><code> $ git add .
- $ git commit -m &quot;init&quot;
- git remote add origin https://gitee.com/xiaodev/XDPhoto.git
- git push -f origin master//第一次加上-f
-//git push origin master
+<pre><code> $ git add . &lt;br&gt;
+ $ git commit -m &quot;init&quot; &lt;br&gt;
+ git remote add origin https://gitee.com/xiaodev/XDPhoto.git &lt;br&gt;
+ git push -f origin master//第一次加上-f &lt;br&gt;
+//git push origin master &lt;br&gt;
 </code></pre><p> 打上和spec文件中s.version一致的tag</p>
-<pre><code>git tag &apos;0.1.0&apos;
-git push --tags
+<pre><code>git tag &apos;0.1.0&apos; &lt;br&gt;
+git push --tags &lt;br&gt;
 </code></pre><h4 id="5-提交spec至私有索引库"><a href="#5-提交spec至私有索引库" class="headerlink" title="5.提交spec至私有索引库"></a>5.提交spec至私有索引库</h4><p>本地检测，本地验证不会验证 s.source 中的tag。私有仓库的验证要加上–private，不然会有警告，也可以加上–allow-warnings忽略警告。</p>
 <pre><code>pod lib lint --private
 </code></pre><p> 远程验证，会验证s.source 中的tag。</p>
 <pre><code>pod spec lint --private
-</code></pre><p> 提交podspec到索引仓库。</p>
-<pre><code> // pod repo push 私有索引库名称 spec名称.podspec 
-pod repo push XSpecs SD**.podspec 
+</code></pre><p> 提交podspec到索引仓库。`</p>
+<pre><code> // pod repo push 私有索引库名称 spec名称.podspec  &lt;br&gt;
+pod repo push XSpecs SD**.podspec  &lt;br&gt;
 </code></pre><p>成功后可以尝试搜索一下组件。</p>
 <pre><code>pod search &apos;SD**&apos;
 </code></pre><blockquote>
 <p>如果search不到，可以删除~/Library/Caches/CocoaPods/中的search_index.json文件，重新pod saerch。</p>
 </blockquote>
 <h4 id="6-使用"><a href="#6-使用" class="headerlink" title="6.使用"></a>6.使用</h4><p>添加组件到项目的Podfile中。<br>文件顶部添加描述</p>
-<pre><code>// 第二行是为了保证公有库的正常使用
-source &apos;https://gitee.com/x***/XSpecs.git&apos;
-source &apos;https://github.com/CocoaPods/Specs.git&apos;
+<pre><code>// 第二行是为了保证公有库的正常使用 &lt;br&gt;
+source &apos;https://gitee.com/x***/XSpecs.git&apos; &lt;br&gt;
+source &apos;https://github.com/CocoaPods/Specs.git&apos; &lt;br&gt;
 </code></pre><p> 然后添加组件</p>
 <pre><code>pod &apos;SD**&apos;
 </code></pre><p>安装组件</p>
